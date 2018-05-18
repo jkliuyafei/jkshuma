@@ -1,0 +1,150 @@
+/* pages/upload-goods/upload-goods.wxss */
+
+page {
+  background-color: #f2f2f2;
+  border-top: 0.5px solid #dfdede;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.image-all {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  width: 100%;
+}
+
+.image-wrap {
+  height: 180rpx;
+  display: flex;
+  padding: 20rpx;
+  display: -webkit-box;
+  background-color: #fff;
+}
+
+.image-item {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 20rpx;
+  flex: 1;
+  position: relative;
+}
+.image-item-hint{
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex:1;
+  position: relative;
+  background-color: #ececec;
+}
+.upload-item-img-left{
+   width: 100rpx;
+  height: 100rpx;
+  justify-content: center;
+  margin-top: 15rpx;
+}
+.upload-item-img {
+  width: 180rpx;
+  height: 180rpx;
+  justify-content: center;
+ 
+}
+.add-img-hint{
+  color:#373b40;
+  margin-bottom: 15rpx;
+}
+.image-upload-hint{
+  width: 180rpx;
+  height: 180rpx;
+  position: absolute;
+  opacity: 0.55;
+  background: #000000;
+  text-align: center;
+  line-height: 180rpx;
+  color: #fff;
+}
+
+.goods-content {
+  background-color: #fff;
+ padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+
+.goods-title-wrap {
+  height: 60rpx;
+ 
+}
+
+.goods-describe-wrap {
+  height: 280rpx;
+  width: 100%;
+
+}
+
+.goods-title {
+  font-size: large;
+  width: 100%;
+
+}
+.goods-describe{
+  height: 100%;
+  width: 100%;
+}
+
+.goods-detail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+}
+
+.btn-post {
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+  left: 20rpx;
+}
+.detail-item{
+  height: 80rpx;
+  background-color: #fff;
+  border: 0.5px solid #f2f2f2;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.forward{
+  height: 30rpx;
+  width: 40rpx;
+}
+.goods-parameter-wrap{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.detail-item-text{
+  width: 200rpx;
+}
+.goods-parameter{
+  margin-left: 10rpx;
+  text-align: right;
+}
+.goods-parameter.on{
+  margin-left: 10rpx;
+  text-align: right;
+  width: 100%;
+}
+.goods-hint{
+  color: #808080;
+}
+.view-hover{
+  background-color: #e6e6e6;
+}

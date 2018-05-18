@@ -1,0 +1,57 @@
+<!--pages/good-phone-number/good-phone-number.wxml-->
+
+<view class='number-tab'>
+  <view class="tab-item {{curIndex==index?'on':''}}" wx:for='{{operators}}' wx:key='index' bindtap='switchOperators' data-table-index='{{index}}' data-id='{{item.id}}'>{{item.name}}</view>
+</view>
+<button class='custom-service' type='primary' open-type='contact'>咨询客服</button>
+<scroll-view class='number-scroll' enable-back-to-top="true" scroll-with-animation='true' scroll-y='true' scroll-into-view="{{toView}}">
+  <view id='chinaMobile' class='number-operators-name title-color'>中国移动</view>
+  <view class='tr'>
+    <view class='th {{index}}' wx:for='{{tableHead}}' wx:key='index'>{{item}}</view>
+  </view>
+  <block wx:for='{{chinaMobileNumber}}' wx:for-item='chinaMobileItem' wx:for-index='chinaMobileIndex' wx:key='chinaMobileIndex'>
+    <view class='tr two-color' wx:if='{{chinaMobileIndex%2==0}}'>
+      <view wx:for="{{chinaMobileItem}}" wx:key='index' class='td {{index}} title-color'>{{item}}</view>
+    </view>
+    <view class='tr one-color' wx:else>
+      <view wx:for="{{chinaMobileItem}}" wx:key='index' class='td {{index}} title-color'>{{item}}</view>
+    </view>
+  </block>
+
+  <view id='chinaUnicom' class='number-operators-name title-color'>中国联通</view>
+  <view class='tr'>
+    <view class='th {{index}}' wx:key='index' wx:for='{{tableHead}}'>{{item}}</view>
+  </view>
+  <block wx:for='{{chinaUnicomNumber}}' wx:for-item='chinaUnicomItem' wx:for-index='chinaUnicomIndex' wx:key='chinaUnicomIndex'>
+    <view class='tr two-color' wx:if='{{chinaUnicomIndex%2==0}}'>
+      <view wx:for="{{chinaUnicomItem}}" wx:key='index' class='td {{index}} title-color'>{{item}}</view>
+    </view>
+    <view class='tr one-color' wx:else>
+      <view wx:for="{{chinaUnicomItem}}" wx:key='index' class='td {{index}} title-color'>{{item}}</view>
+    </view>
+  </block>
+
+  <view id='chinaTelecom' class='number-operators-name title-color'>中国电信</view>
+  <view class='tr'>
+    <view class='th {{index}}' wx:key='index' wx:for='{{tableHead}}'>{{item}}</view>
+  </view>
+  <block wx:for='{{chinaTelecomNumber}}' wx:for-item='chinaTelecomItem' wx:for-index='chinaTelecomIndex' wx:key='chinaTelecomIndex'>
+    <view class='tr two-color' wx:if='{{chinaTelecomIndex%2==0}}'>
+      <view wx:for="{{chinaTelecomItem}}" wx:key='index' class='td {{index}} title-color'>{{item}}</view>
+    </view>
+    <view class='tr one-color' wx:else>
+      <view wx:for="{{chinaTelecomItem}}" wx:key='index' class='td {{index}} title-color'>{{item}}</view>
+    </view>
+  </block>
+<view class='statement'>
+  <view class='statement-text on'>选号须知：</view>
+  <view class='statement-text hint-color'>1.情侣靓号可在以上号码池中自由匹配，价格为两者价格相加之和；</view>
+  <view class='statement-text hint-color'>2.所有号码皆需要本人持身份证过户；</view>
+ 
+</view>
+</scroll-view>
+  <view class="container">
+    <dialog id='dialog'
+    bind:myGetUserInfo="myGetUserInfo">
+    </dialog>
+</view>

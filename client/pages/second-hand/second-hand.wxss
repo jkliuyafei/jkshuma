@@ -1,0 +1,138 @@
+/* pages/second-hand/second-hand.wxss */
+
+page {
+  background: #f2f2f2;
+  border-top: 0.5px solid #dfdede;
+}
+
+.head {
+  width: 100%;
+  height: 80rpx;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid #dfdede;
+  border-top: 0.5px solid #dfdede;
+  background-color: #f2f2f2;
+}
+
+.inventory {
+  height: 100%;
+  width: 100%;
+  background-color: #fafafa;
+  border-right: 0.5px solid #dfdede;
+  text-align: center;
+  line-height: 80rpx;
+  color: #e4393c;
+}
+
+.post-btn {
+  height: 80rpx;
+  width: 80rpx;
+  padding: 2px;
+}
+
+.view-hover {
+  background-color: #e6e6e6;
+}
+
+.goods-scroll {
+  display: flex;
+  margin-top: 80rpx;
+  flex-direction: column;
+  height: 1200rpx;
+  width: 750rpx;
+}
+
+.goods-item {
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding-bottom: 15rpx;
+  margin-bottom: 20rpx;
+}
+
+.goods-head-content {
+  width: 750rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goods-title-content {
+  margin-bottom: 8rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  font-size: 34rpx;
+  
+}
+
+.goods-describe-content {
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+}
+
+.goods-image-content {
+  width: 720rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  height: 260rpx;
+  display: flex;
+  white-space: nowrap;
+}
+
+.left-content {
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+}
+
+.shop-logo {
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 15rpx;
+}
+
+.shop-name-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 70rpx;
+  margin-left: 10rpx;
+}
+
+.shop-name {
+  font-size: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+}
+
+.goods-post-time {
+  height: 22rpx;
+  line-height: 22rpx;
+  font-size: 22rpx;
+}
+
+.goods-price {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-right: 15rpx;
+}
+
+.goods-image {
+  width: 260rpx;
+  height: 260rpx;
+  display: inline-block;
+  margin-right: 15rpx;
+}
+
+

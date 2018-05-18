@@ -1,0 +1,41 @@
+<!--pages/second-goods-detail/second-goods-detail.wxml-->
+<view class='main-title'>
+  <view class='goods-title title-color'>{{curSecondGoods.goodsTitle}}</view>
+  <view class='price-wrap'>
+    <view class='renminbi red-color'>￥</view>
+    <view class='goods-price red-color'>{{curSecondGoods.goodsPrice}}</view>
+    <view class='goods-postage hint-color'>包邮</view>
+  </view>
+</view>
+<view class='goods-detail-wrap'>
+  <view class='goods-detail-text title-color'>商品详情</view>
+  <view class='parameter-wrap'>
+    <view class='parameter-item-wrap'>
+      <view class='parameter-item-hint hint-color'>品牌：</view>
+      <view class='parameter-item'>{{curSecondGoods.goodsBrand}}</view>
+    </view>
+    <view class='parameter-item-wrap'>
+      <view class='parameter-item-hint hint-color'>型号：</view>
+      <view class='parameter-item'>{{curSecondGoods.goodsModel}}</view>
+    </view>
+    <view class='parameter-item-wrap'>
+      <view class='parameter-item-hint hint-color'>颜色：</view>
+      <view class='parameter-item'>{{curSecondGoods.goodsColor}}</view>
+    </view>
+    <view class='parameter-item-wrap'>
+      <view class='parameter-item-hint hint-color'>容量：</view>
+      <view class='parameter-item hint-color'>{{curSecondGoods.goodsVolume}}</view>
+    </view>
+    <view class='parameter-item-wrap'>
+      <view class='parameter-item-hint hint-color'>串号：</view>
+      <view class='parameter-item'>{{curSecondGoods.goodsImei}}</view>
+    </view>
+  </view>
+  <view class='goods-describe title-color'>{{curSecondGoods.goodsDescribe}}</view>
+  <image class='goods-image' mode='widthFix' wx:for='{{curSecondGoods.goodsImage}}' wx:key='index' src='{{item}}' data-index='{{index}}' bindtap='seeBigImage'></image>
+</view>
+<view class="container">
+    <dialog id='dialog'
+    bind:myGetUserInfo="myGetUserInfo">
+    </dialog>
+</view>

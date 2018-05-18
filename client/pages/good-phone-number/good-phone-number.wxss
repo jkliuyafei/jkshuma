@@ -1,0 +1,133 @@
+/* pages/good-phone-number/good-phone-number.wxss */
+page{
+  height: 100%;
+}
+.custom-service{
+  position: fixed;
+  bottom: 40rpx;
+  right: 0;
+  height: 60rpx;
+  width: 145rpx;
+  z-index: 10000;
+  font-size: 24rpx;
+  line-height: 60rpx;
+border-radius: 30rpx 0 0 30rpx;
+}
+
+.number-tab{
+  height: 80rpx;
+  background: #fafafa;
+  position: fixed;
+  display: flex;
+  border-top: 0.5px solid #dfdede;
+  border-bottom: 0.5px solid #dfdede;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+.tab-item{
+  flex:1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.tab-item.on{
+  border-bottom: 3px solid #e4393c;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #e4393c;
+  flex: 1;
+}
+
+.number-scroll{
+  width: 1300rpx;
+  height: 1200rpx;
+  margin-top: 80rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.number-operators-name{
+  width: 1300rpx;
+  height: 60rpx;
+  background: #fafafa;
+  line-height: 60rpx;
+  padding-left: 20rpx;
+  color: #e4393c;
+  text-align: left;
+}
+.tr{
+  width: 1300rpx;
+  display: flex;
+   border-bottom: 0.5px solid #dfdede;
+}
+.th {
+  height: 80rpx;
+  background-color: #36f;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  border-right: 0.5px solid #dfdede;
+}
+.td {
+  min-height: 80rpx;
+  justify-content: center;
+  text-align: center;
+ 
+  border-right: 0.5px solid #dfdede;
+}
+.numberIndex{
+  width: 100rpx;
+   line-height: 80rpx;
+}
+.phoneNumber{
+  width: 260rpx;
+   line-height: 80rpx;
+}
+.qCellCore{
+  width: 140rpx;
+   line-height: 80rpx;
+}
+.price{
+  width: 140rpx;
+   line-height: 80rpx;
+}
+.expensesDetail{
+  width: 640rpx;
+   line-height: normal;
+}
+.td.expensesDetail{
+  text-align: left;
+  padding-left: 20rpx;
+  font-size: 22rpx;
+
+}
+.th.expensesDetail{
+  padding-left: 20rpx;
+  text-align: left;
+}
+.two-color {
+  background-color: #e6f3f9;
+}
+
+.one-color {
+  background: snow;
+}
+.statement {
+  width: 740rpx;
+  margin-top: 30rpx;
+  padding-bottom: 120rpx;
+ margin-left: 30rpx;
+}
+
+.statement-text {
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  width: 700rpx;
+}
+.statement-text.on{
+  color: #e4393c;
+}

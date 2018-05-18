@@ -1,0 +1,11 @@
+<!--pages/second-choose-parameter/second-choose-parameter.wxml-->
+<view class='main'>
+<view class="color-hint">机身颜色</view>
+<view class="color-block">
+  <view class="color-item {{index===curColorIndex?'on':''}}" wx:for="{{colorGroup}}" data-color-index="{{index}}" data-color="{{item}}" bindtap='chooseColor'>{{item}}</view>
+</view>
+<view class="volume-hint">容量</view>
+<view class="volume-block">
+  <view class="volume-item {{index===curVolumeIndex?'on':''}}" wx:for="{{volumeGroup}}" data-volume-index="{{index}}" data-volume="{{item}}" bindtap='chooseVolume'>{{item}}</view>
+</view>
+</view>

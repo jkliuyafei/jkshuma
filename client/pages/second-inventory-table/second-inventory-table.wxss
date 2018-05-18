@@ -1,0 +1,83 @@
+.table {
+  width: 100%;
+}
+
+.tr {
+  width: 1330rpx;
+  display: flex;
+  border-bottom: 0.5px solid #dfdede;
+}
+
+.th {
+  width: 200rpx;
+  height: 80rpx;
+  background-color: #36f;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  border-right: 0.5px solid #dfdede;
+}
+
+.td {
+  width: 200rpx;
+  height: 70rpx;
+  justify-content: center;
+  color: #44474c;
+  text-align: center;
+  line-height: 70rpx;
+  border-right: 0.5px solid #dfdede;
+}
+
+.goodsIndex {
+  width: 100rpx;
+}
+
+.goodsBrand {
+  width: 150rpx;
+}
+
+.goodsColor {
+  width: 160rpx;
+}
+
+.goodsVolume {
+  width: 100rpx;
+}
+
+.goodsImei {
+  width: 240rpx;
+}
+
+.goodsPrice {
+  width: 160rpx;
+}
+
+.goodsDetail {
+  width: 220rpx;
+}
+
+.two-color {
+  background-color: #e6f3f9;
+}
+
+.one-color {
+  background: snow;
+}
+
+.statement {
+  width: 740rpx;
+  margin-top: 30rpx;
+  padding-bottom: 120rpx;
+  margin-left: 30rpx;
+}
+
+.statement-text {
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  width: 700rpx;
+}
+
+.statement-text.on {
+  color: #e4393c;
+}

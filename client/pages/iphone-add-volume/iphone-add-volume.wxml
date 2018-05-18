@@ -1,0 +1,27 @@
+<!--pages/iphone-add-volume/iphone-add-volume.wxml-->
+<button class='custom-service' type='primary' open-type='contact'>咨询客服</button>
+<scroll-view scroll-y class='main-content'>
+  <view class='tr'>
+    <view class='th {{index}}' wx:for='{{tableHead}}' wx:key='index'>{{item}}</view>
+  </view>
+  <block wx:for='{{iphoneAddVolume}}' wx:for-item='tableItem' wx:for-index='tableIndex' wx:key='index'>
+    <view class='tr two-color' wx:if='{{tableIndex%2==0}}'>
+      <view class='td {{index}} title-color' wx:for='{{tableItem}}' wx:key='index'>{{item==0?'-':item}}</view>
+    </view>
+    <view class='tr one-color' wx:else>
+      <view class='td {{index}} title-color' wx:for='{{tableItem}}' wx:key='index'>{{item==0?'-':item}}</view>
+    </view>
+  </block>
+  <view class='statement'>
+    <view class='statement-text on'>苹果手机扩容须知：</view>
+    <view class='statement-text hint-color'>1.扩容所用硬盘均为原装硬盘(非原装的也没有^-^)，品牌有闪迪、海力士、东芝，随机选择；</view>
+    <view class='statement-text hint-color'>2.扩容后所有功能正常如初，不影响此后的软件升级；</view>
+    <view class='statement-text hint-color'>3.因扩容后需要刷机，所以要求手机ID锁可退，手机内所有设置和资料包括微信聊天记录都可以备份，扩容后再同步至手机；</view>
+    <view class='statement-text on'>4.摔的特别严重的手机，扩容有风险不建议扩容，因扩容引起的问题，本店质保三个月。</view>
+  </view>
+</scroll-view>
+<view class="container">
+    <dialog id='dialog'
+    bind:myGetUserInfo="myGetUserInfo">
+    </dialog>
+</view>

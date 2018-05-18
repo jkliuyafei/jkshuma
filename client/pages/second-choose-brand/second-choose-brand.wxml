@@ -1,0 +1,14 @@
+<view class="main">
+  <scroll-view scroll-y="true" class="nav-left">
+    <view class="nav-list {{curIndex===index?'on':''}}" wx:for="{{phoneModel}}" wx:key="index" data-brand-id="{{item.brandId}}" data-index="{{index}}" data-brand="{{item.brand}}" bindtap="switchTab">{{item.brand}}</view>
+  </scroll-view>
+  <scroll-view scroll-y="true" class="detail-content">
+    <view wx:for="{{phoneModel}}" hidden="{{curBrandId===item.brandId?false:true}}" class="model-block">
+      <view wx:for="{{item.modelGroup}}" wx:for-item="model">
+        <view class="model-item title-color" data-model="{{model.model}}" bindtap="chooseModel" hover='true' hover-class='view-hover'>{{model.model}}</view>
+      </view>
+    </view>
+
+  </scroll-view>
+
+</view>

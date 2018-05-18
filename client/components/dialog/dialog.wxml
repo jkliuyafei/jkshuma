@@ -1,0 +1,11 @@
+<!--components/Dialog/dialog.wxml-->
+<view class='wx_dialog_container'hidden="{{!dialogIsShow}}">
+  <view class='wx-mask'></view>
+  <view class='wx-dialog'>
+    <view class='wx-dialog-title'>提示</view>
+    <view class='wx-dialog-content'>请授权小程序使用您的公开信息，否则小程序将不可用。</view>
+    <view class='wx-dialog-footer'>
+      <button open-type='getUserInfo' type='primary' bindgetuserinfo='getUserInfoEvent'>我要授权</button>
+    </view>
+  </view>
+</view>

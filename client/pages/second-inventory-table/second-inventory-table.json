@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "二手商品库存表",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog"
+  }
+}

@@ -1,0 +1,85 @@
+/* pages/second-goods-detail/second-goods-detail.wxss */
+
+page {
+  background: #f2f3f6;
+}
+
+.main-title {
+  width: 710rpx;
+  height: 100%;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  padding: 20rpx;
+  border-top:  0.5px solid #dfdede;
+}
+
+.goods-title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.price-wrap {
+  width: 100%;
+  height: 60rpx;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: baseline;
+}
+
+.renminbi {
+  font-size: 24rpx;
+}
+
+.goods-price {
+  font-weight: bold;
+  font-size: 48rpx;
+  margin-left: 2rpx;
+}
+
+.goods-postage {
+  font-size: 26rpx;
+  margin-left: 14rpx;
+}
+.goods-detail-wrap{
+  width: 710rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.goods-detail-text{
+  margin-top: 32rpx;
+  margin-bottom: 18rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.parameter-wrap{
+  width: 100%;
+}
+.parameter-item-wrap{
+  width: 49.9%;
+  height: 36rpx;
+  float: left;
+  display: flex;
+  margin-top: 10rpx;
+}
+.parameter-item-hint{
+  font-size: 26rpx;
+}
+.parameter-item{
+  font-size: 26rpx;
+  color: #7c828a;
+}
+.goods-describe{
+  width: 710rpx;
+  margin-top: 32rpx;
+  margin-bottom: 32rpx;
+  color: #44474c;
+}
+.goods-image{
+  width: 710rpx;
+  margin-bottom: 22rpx;
+}

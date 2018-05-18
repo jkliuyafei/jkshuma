@@ -1,0 +1,133 @@
+
+.new-phone-wrap{
+	display:flex;
+	width:60%;
+	display: -webkit-flex;
+	padding-left:10px;
+}
+.new-phone-content{
+	display:flex;
+	flex-direction:column;
+	border-top:1px solid #dfdede;
+	border-left:1px solid #dfdede;
+	border-right:1px solid #dfdede;
+}
+.brand-content-item{
+	display:flex;
+}
+.phone-brand-table{
+	width:100px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border-bottom:1px solid #dfdede;
+}
+.model-content{
+	display:flex;
+	flex-direction:column;
+}
+.model-content-item{
+	display:flex;
+}
+.phone-model-table{
+	width:200px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border-left:1px solid #dfdede;
+	border-bottom:1px solid #dfdede;
+}
+.volume-content{
+	display:flex;
+	flex-direction:column;
+}
+.volume-content-item{
+	display:flex;
+}
+.phone-volume-table{
+	width:100px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border-left:1px solid #dfdede;
+	border-bottom:1px solid #dfdede;
+}
+.other-content{
+	display:flex;
+	flex-direction:column;
+}
+.other-content-item{
+	display:flex;
+	height:30px;
+}
+.other-table{
+	width:100px;
+	border-left:1px solid #dfdede;
+	border-bottom:1px solid #dfdede;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.price-input{
+	width:98px;
+	border:none;
+	height:28px;
+	text-align:center;
+}
+.phone-handle{
+	width:40%;
+	display:flex;
+	flex-direction:column;
+	position:fixed;
+	top:60px;
+	right:10px;
+}
+.handle-item-title{
+	height:30px;
+	display:flex;
+	width:100%;
+	background:#9ad5f4;
+	color:#fff;
+	align-items:center;
+}
+.handle-item-wrap{
+	width:100%;
+	display:flex;
+	flex-direction:column;
+}
+
+.brand-wrap{
+	padding-top:10px;
+	width:100%;
+	heigth:70px;
+	display:flex;
+	align-items:center;
+}
+.property-option{
+	heigth:100%;
+	width:180px;
+}
+.color{
+	display:flex;
+	height:40px;
+	display:flex;
+	align-item:center;
+}
+.color-wrap{
+	width:100%;
+	display:flex;
+	flex-wrap:wrap;
+}
+.color-checkbox{
+	height:30px;
+	width:100px;
+}
+.change-price-wrap{
+	width:100%;
+	height:70px;
+	padding-top:20px;
+	padding-bottom:20px;
+	display:flex;
+	align-item:center;
+}
+

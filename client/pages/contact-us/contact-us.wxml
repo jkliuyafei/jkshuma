@@ -1,0 +1,49 @@
+<!--pages/contact-us/contact-us.wxml-->
+<scroll-view class='main-content' scroll-y>
+
+<view class='shop-head'>
+  <view class='shop-name-content'>
+    <view class='shop-name title-color'>贵阳市极客数码销售部</view>
+    <view class='shop-describe hint-color'>主营：各品牌二手手机回收、销售；苹果、三星、华为、小米、魅族等新机销售；手机维修；手机靓号销售。</view>
+  </view>
+  <view class='image-content'>
+    <image class='shop-logo' src='../../image/shop_logo.png'></image>
+  </view>
+</view>
+
+
+  <view class='shop-info-item' hover-class='shop-item-hover' bindtap='showShopLocation'>
+    <view>
+      <image class='shop-info-icon' src='../../image/shop_location_icon.png'></image>
+    </view>
+    <view class='shop-info-text title-color'>贵阳市南明区中华南路25号和丰通讯二楼22号极客数码</view>
+    <view>
+      <image class='forward' src='../../image/forward.png'></image>
+    </view>
+  </view>
+  <view class='shop-info-item'>
+    <view>
+      <image class='shop-info-icon' src='../../image/shop_time_icon.png'></image>
+    </view>
+    <view class='shop-info-text title-color'>9:00-20:00</view>
+  </view>
+  <view class='shop-info-item' hover-class='shop-item-hover' bindtap='makePhoneCall'>
+    <view>
+      <image class='shop-info-icon' src='../../image/shop_phone_icon.png'></image>
+    </view>
+    <view class='shop-info-text title-color'>177-8511-5730</view>
+    <view>
+      <image class='forward' src='../../image/forward.png'></image>
+    </view>
+  </view>
+  <view class='shop-info-item'>
+    <view>
+      <image class='shop-info-icon' src='../../image/shop_photo_icon.png'></image>
+    </view>
+    <view class='shop-info-text title-color'>门店照片</view>
+  </view>
+  <view class='shop-photo-content' >
+   <image class='shop-photo' bindtap='seeBigPhoto' mode='aspectFill' wx:for='{{shopPhoto}}' src='{{item}}' data-index='{{index}}' ></image>
+  </view>
+  
+</scroll-view>

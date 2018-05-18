@@ -1,0 +1,50 @@
+{
+  "pages":[
+    "pages/second-hand/second-hand",
+    "pages/new-phone/new-phone",
+    "pages/service/service",
+    "pages/contact-us/contact-us",
+    "pages/phone-repair/phone-repair",   
+    "pages/good-phone-number/good-phone-number",
+    "pages/second-upload-goods/second-upload-goods",
+    "pages/second-choose-brand/second-choose-brand",
+    "pages/second-choose-parameter/second-choose-parameter",
+    "pages/second-inventory-table/second-inventory-table",
+    "pages/iphone-add-volume/iphone-add-volume",
+    "pages/second-goods-detail/second-goods-detail",
+    "pages/shop-manage/shop-manage",
+    "pages/wx-test/wx-test"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#b3b3b3",
+    "selectedColor": "#e4393c",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/second-hand/second-hand",
+      "text": "二手商品",
+      "iconPath": "image/second_hand_normal.png",
+      "selectedIconPath": "image/second_hand_pressed.png"
+    },{
+      "pagePath":"pages/new-phone/new-phone",
+      "text":"新机价格",
+      "iconPath":"image/new_phone_normal.png",
+      "selectedIconPath":"image/new_phone_pressed.png"
+    },{
+      "pagePath":"pages/service/service",
+      "text":"增值服务",
+      "iconPath":"image/service_normal.png",
+      "selectedIconPath":"image/service_pressed.png"
+    },{
+      "pagePath":"pages/contact-us/contact-us",
+      "text":"联系我们",
+      "iconPath":"image/contact_us_normal.png",
+      "selectedIconPath":"image/contact_us_pressed.png"
+    }]
+  }
+}

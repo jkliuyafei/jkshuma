@@ -1,0 +1,64 @@
+/* pages/iphone-add-volume/iphone-add-volume.wxss */
+.main-content{
+  width: 750rpx;
+  height: 100%;
+}
+.tr{
+  width: 750rpx;
+  display: flex;
+   border-bottom: 0.5px solid #dfdede;
+}
+.th {
+  width: 130rpx;
+  height: 80rpx;
+  background-color: #36f;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  border-right: 0.5px solid #dfdede;
+}
+.td {
+  width: 130rpx;
+  height: 80rpx;
+  justify-content: center;
+  text-align: center;
+  line-height: 80rpx;
+  border-right: 0.5px solid #dfdede;
+}
+.model{
+  width: 230rpx;
+}
+.two-color {
+  background-color: #e6f3f9;
+}
+
+.one-color {
+  background: snow;
+}
+.statement {
+  width: 740rpx;
+  margin-top: 30rpx;
+  padding-bottom: 120rpx;
+ margin-left: 30rpx;
+}
+
+.statement-text {
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  width: 700rpx;
+}
+.statement-text.on{
+  color: #e4393c;
+}
+.custom-service {
+  position: fixed;
+  bottom: 40rpx;
+  right: 0;
+  height: 60rpx;
+  width: 145rpx;
+  z-index: 10000;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx 0 0 30rpx;
+}

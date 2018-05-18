@@ -1,0 +1,159 @@
+/* pages/phone-repair/phone-repair.wxss */
+
+page {
+  height: 100%;
+}
+
+.custom-service {
+  position: fixed;
+  bottom: 40rpx;
+  right: 0;
+  height: 60rpx;
+  width: 145rpx;
+  z-index: 10000;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx 0 0 30rpx;
+}
+
+
+.top-tab {
+  border-top: 0.5px solid #dfdede;
+  border-bottom: 0.5px solid #dfdede;
+  height: 78rpx;
+  position: fixed;
+  top:0;
+  width: 100%;
+  white-space: nowrap;
+  background: #fafafa;
+}
+
+.tab-item {
+  height: 74rpx;
+  line-height: 74rpx;
+  width: 160rpx;
+  
+  text-align: center;
+  display: inline-block;
+  color: #44474c;
+}
+
+.tab-item.on {
+  border-bottom: 3px solid #e4393c;
+  height: 74rpx;
+  line-height: 74rpx;
+  color: #e4393c;
+  flex: 1;
+  width: 160rpx;
+  text-align: center;
+  display: inline-block;
+}
+
+.content-scroll {
+  width: 2380rpx;
+  height: 1200rpx;
+  margin-top: 78rpx;
+ 
+}
+
+.brand-content {
+  width: 2380rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  width: 2380rpx;
+  height: 60rpx;
+  background: #fafafa;
+  line-height: 60rpx;
+  color: #e4393c;
+  text-align: left;
+  padding-left: 20rpx;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  border-top: 0.5px solid #dfdede;
+}
+
+.tr {
+  width: 2380rpx;
+  display: flex;
+  border-bottom: 0.5px solid #dfdede;
+}
+
+.th {
+  width: 200rpx;
+  height: 60rpx;
+  background-color: #36f;
+  justify-content: center;
+  color: #fff;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-right: 0.5px solid #dfdede;
+}
+
+.td {
+  width: 200rpx;
+  font-size: 26rpx;
+  height: 60rpx;
+  justify-content: center;
+  text-align: center;
+  line-height: 60rpx;
+  border-right: 0.5px solid #dfdede;
+}
+.phoneModel{
+  width: 180rpx;
+}
+.outsideScreenAssemble{
+  width: 180rpx;
+}
+.insideScreenAssemble{
+  width: 180rpx;
+}
+.battery{
+  width: 100rpx;
+}
+.phoneShell{
+  width: 100rpx;
+}
+.phoneModelOne{
+  width: 180rpx;
+}
+.frontCamera{
+  width: 140rpx;
+}
+.backCamera{
+  width: 140rpx;
+}
+.tailePlug{
+width: 100rpx;
+}
+.phoneUnclock{
+  width: 100rpx;
+}
+.phoneModelTwo{
+  width: 180rpx;
+}
+.two-color {
+  background-color: #e6f3f9;
+}
+
+.one-color {
+  background: snow;
+}
+.statement {
+  width: 740rpx;
+  margin-top: 30rpx;
+  padding-bottom: 120rpx;
+ margin-left: 30rpx;
+}
+
+.statement-text {
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  width: 700rpx;
+}
+.statement-text.on{
+  color: #e4393c;
+}

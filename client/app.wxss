@@ -1,0 +1,16 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+.title-color{
+  color: #44474c;
+}
+.hint-color{
+  color:#abaeb8;
+}
+.red-color{
+  color: #e4393c;
+}

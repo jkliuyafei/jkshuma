@@ -1,0 +1,49 @@
+<view class="head">
+  <view class="update-time">更新日期：{{updateTime}}</view>
+  <view class='refresh' bindtap='refreshQuotation'>
+    <image class='refresh' src='../../image/refresh.png'></image>
+  </view>
+</view>
+<button class='custom-service' type='primary' open-type='contact'>咨询客服</button>
+<view class='head-wrap'></view>
+<view class='main'>
+  <view class='nav-left'>
+    <scroll-view class='nav-scroll' scroll-y='true'>
+      <view class="nav-list {{curIndex===index?'on':''}}" wx:for='{{newPhoneQuotation}}' wx:key='index' data-id='{{item.brandId}}' data-index='{{index}}' bindtap='switchTab'>{{item.brand}}</view>
+    </scroll-view>
+  </view>
+  <view class='content-right'>
+    <scroll-view class='content-scroll' scroll-y='true' enable-back-to-top='true' scroll-with-animation='true' scroll-into-view="{{toView}}">
+      <view class='include-brand-content' wx:for='{{newPhoneQuotation}}' wx:for-item='brand' wx:key='index'>
+        <view class='phone-brand' id='{{brand.brandId}}'>{{brand.brand}}</view>
+        <view class='include-model-content' wx:for='{{brand.exceptBrand}}' wx:for-item='model' wx:key='index'>
+          <view class='phone-model'>{{model.model}}</view>
+          <view class='include-volume-content' wx:for='{{model.exceptModel}}' wx:key='index' wx:for-item='volume'>
+            <view class='volume-father'>
+              <view class='phone-volume'>{{volume.volume==0?'-':volume.volume}}</view>
+            </view>
+            <view class='include-other-content-father'>
+              <view class='include-other-content' wx:for='{{volume.other}}' wx:key='index' wx:for-item='other'>
+                <view class='other-item-content'>
+                  <view class='other-item'>{{other.color==0?'-':other.color}}</view>
+                  <view class='other-item'>￥{{other.price==0?'-':other.price}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='statement'>
+        <view class='statement-text on'>购买须知：</view>
+        <view class='statement-text hint-color'>1.本店郑重承诺所有新机以及配件均为正品行货，全国联保，假一罚十；</view>
+        <view class='statement-text hint-color'>2.以上新机报价均不含税，如需开具发票，请咨询客服；</view>
+        <view class='statement-text on'>3.本店所有新机均支持以旧换新，详情咨询客服。</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<view class="container">
+    <dialog id='dialog'
+    bind:myGetUserInfo="myGetUserInfo">
+    </dialog>
+</view>

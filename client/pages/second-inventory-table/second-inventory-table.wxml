@@ -1,0 +1,39 @@
+<scroll-view class='table' scroll-x='true'>
+  <view class='tr'>
+    <view class='th {{index}}' wx:for='{{tableHeadItem}}'wx:key="index">{{item}}</view>
+  </view>
+
+  <block wx:for='{{secondGoods}}' wx:for-item='goodsItem' wx:key='index' wx:for-index='goodsIndex'>
+    <view class='tr two-color' wx:if='{{goodsIndex%2==0}}'data-index='{{goodsIndex}}' bindtap='seeGoodsDetail'>
+      <view class='td goodsIndex'>{{goodsIndex+1}}</view>
+      <view class='td goodsBrand'>{{goodsItem.goodsBrand}}</view>
+      <view class='td goodsModel'>{{goodsItem.goodsModel}}</view>
+      <view class='td goodsColor'>{{goodsItem.goodsColor}}</view>
+      <view class='td goodsVolume'>{{goodsItem.goodsVolume}}</view>
+      <view class='td goodsImei'>{{goodsItem.goodsImei}}</view>
+      <view class='td goodsPrice'>{{goodsItem.goodsPrice}}</view>
+      <view class='td goodsDetail'>查看详情>></view>
+    </view>
+    <view class='tr one-color' data-index='{{goodsIndex}}' bindtap='seeGoodsDetail' wx:else>
+      <view class='td goodsIndex'>{{goodsIndex+1}}</view>
+      <view class='td goodsBrand'>{{goodsItem.goodsBrand}}</view>
+      <view class='td goodsModel'>{{goodsItem.goodsModel}}</view>
+      <view class='td goodsColor'>{{goodsItem.goodsColor}}</view>
+      <view class='td goodsVolume'>{{goodsItem.goodsVolume}}</view>
+      <view class='td goodsImei'>{{goodsItem.goodsImei}}</view>
+      <view class='td goodsPrice'>{{goodsItem.goodsPrice}}</view>
+      <view class='td goodsDetail'>查看详情>></view>
+    </view>
+  </block>
+
+</scroll-view>
+<view class='statement'>
+  <view class='statement-text on'>极客数码二手商品保修条例：</view>
+  <view class='statement-text hint-color'>1.极客数码所售二手商品成色、有无维修、功能是否有瑕疵皆如实描述；</view>
+  <view class='statement-text hint-color'>2.极客数码所售二手商品，排除人为原因，皆提供一个月质保。</view>
+</view>
+  <view class="container">
+    <dialog id='dialog'
+    bind:myGetUserInfo="myGetUserInfo">
+    </dialog>
+</view>

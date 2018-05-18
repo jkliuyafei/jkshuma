@@ -1,0 +1,31 @@
+<!--pages/second-hand/second-hand.wxml-->
+<view class="head">
+  <view class="inventory" bindtap="goodsInventoryTable" hover='true' hover-class='view-hover'>二手商品库存表</view>
+  <image src="../../image/btn_post.png" mode="aspectFit" class="post-btn" bindtap="uploadGoods" hidden="{{btnShowOrNot}}"></image>
+</view>
+  <scroll-view class='goods-scroll' scroll-y='true' enable-back-to-top='true'>
+  <block wx:for='{{secondGoods}}' wx:key='index' wx:for-item='secondGoods' wx:key='index'>
+    <view class='goods-item' data-index='{{index}}' bindtap='seeGoodsDetail'>
+      <view class='goods-head-content'>
+        <view class='left-content'>
+          <image class='shop-logo' mode='scaleToFill' src='../../image/shop_logo.png'></image>
+          <view class='shop-name-content'>
+            <view class='shop-name title-color'>极客数码和丰店</view>
+            <view class='goods-post-time hint-color'>{{secondGoods.uploadTime}}</view>
+          </view>
+        </view>
+        <view class='goods-price red-color'>￥{{secondGoods.goodsPrice}}</view>
+      </view>
+      <view class='goods-title-content title-color'>{{secondGoods.goodsTitle}}</view>
+      <view class='goods-describe-content title-color'>{{secondGoods.goodsDescribe}}</view>
+      <scroll-view class='goods-image-content' scroll-x='true'>
+        <image class='goods-image' wx:key='index' wx:for='{{secondGoods.goodsImage}}' wx:key='index' wx:for-item='goodsImage' mode='aspectFill' lazy-load='true' src='{{goodsImage}}' catchtap='seeBigImage' data-image-index='{{index}}' data-image='{{secondGoods.goodsImage}}'></image>
+      </scroll-view>
+    </view>
+    </block>
+  </scroll-view>
+  <view class="container">
+    <dialog id='dialog'
+    bind:myGetUserInfo="myGetUserInfo">
+    </dialog>
+</view>

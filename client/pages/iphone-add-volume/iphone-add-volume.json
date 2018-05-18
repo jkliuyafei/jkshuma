@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "苹果扩容",
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog"
+  }
+}
