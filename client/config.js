@@ -14,7 +14,8 @@ var config = {
 
     // 登录地址，用于建立会话
     loginUrl: `${host}/weapp/login`,
-  
+    //我自己的登陆接口
+    myLoginUrl: `${host}/weapp/myLogin`,
     // 测试的请求地址，用于测试会话
     requestUrl: `${host}/weapp/user`,
 

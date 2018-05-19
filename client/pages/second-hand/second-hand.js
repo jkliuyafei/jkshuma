@@ -11,12 +11,28 @@ Page({
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-       
+       qcloud.myLogin({
+         loginUrl:config.service.myLoginUrl,
+         success:function(res){
+           console.log(res);
+         },
+         fail:function(e){
+            console.log(e)
+         }
+       });
+       wx.checkSession({
+         success:function(res){
+           console.log(res)
+           console.log('session success')
+         }
+       })
   },
   onReady: function () {
     // 页面渲染完成
     this.dialog = this.selectComponent("#dialog"); 
   },
+
+  /*
   onShow: function () {
     // 页面显示,根据缓存判断是不是从发布页面过来的，是的话就刷新页面
     var that = this
@@ -44,10 +60,12 @@ Page({
     })
     
   },
+
   onHide: function () {
     // 页面隐藏
     this.dialog.hideDialog();
   },
+  */
   onUnload: function () {
     // 页面关闭
   },

@@ -1,5 +1,6 @@
 var constants = require('./lib/constants');
 var login = require('./lib/login');
+var myLogin=require('./lib/myLogin');
 var Session = require('./lib/session');
 var request = require('./lib/request');
 var Tunnel = require('./lib/tunnel');
@@ -12,7 +13,7 @@ var exports = module.exports = {
     login: login.login,
     setLoginUrl: login.setLoginUrl,
     LoginError: login.LoginError,
-
+    myLogin:myLogin.myLogin,
     clearSession: Session.clear,
 
     request: request.request,
