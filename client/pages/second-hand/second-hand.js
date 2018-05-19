@@ -14,18 +14,13 @@ Page({
        qcloud.myLogin({
          loginUrl:config.service.myLoginUrl,
          success:function(res){
-           console.log(res);
+           
          },
          fail:function(e){
             console.log(e)
          }
        });
-       wx.checkSession({
-         success:function(res){
-           console.log(res)
-           console.log('session success')
-         }
-       })
+
   },
   onReady: function () {
     // 页面渲染完成

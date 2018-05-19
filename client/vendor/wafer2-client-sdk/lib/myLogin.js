@@ -10,24 +10,64 @@ var defaultOptions = {
 };
 var myLogin = function myLogin(options) {
   options = utils.extend({}, defaultOptions, options);
-  wx.login({
-    success: function (res) {
-      var code = res.code;
+  var doLogin = () => {
+    wx.login({
+      success: function (res) {
+        var code = res.code;
+        var header = {};
+        header[constants.WX_HEADER_CODE] = code;
+        wx.request({
+          url: options.loginUrl,
+          header: header,
+          method: options.method,
+          data: options.data,
+          success: function (result) {
+            var data = result.data;
+//成功响应了会话
+            if (data && data.code === 0 && data.data.skey) {
+              var res=data.data
+              Session.set(res);
+              options.success(res.openid)
+              console.log(res.openid)
+              console.log('这是访问服务器的输出')
+            }else{
+              console.log('响应成功但是没数据')
+              res='未知错误'
+              options.fail(res)
+            }
+           
+          },
+          fail: function (res) {
+            console.log('wx.request失败！');
+            options.fail(res);
+          }
+        })
+      },
+      fail: function (res) {
+        console.log('wx.login失败！');
+        options.fail(res);
+      }
+    })
+  }
+  var session = Session.get();
 
-      var header = {};
-      header[constants.WX_HEADER_CODE] = code;
+  if (session) {
+    wx.checkSession({
+      success: function () {
+        options.success(session.openid);
+        console.log('这是session的输出')
+        console.log(session.openid)
+      },
 
-      wx.request({
-        url: options.loginUrl,
-        header: header,
-        method: options.method,
-        data: options.data,
-        success: function (result) {
-          options.success(result)
-        }
-      })
-    }
-  })
+      fail: function () {
+        Session.clear();
+        doLogin();
+      },
+    });
+  } else {
+    doLogin();
+  }
+
 };
 module.exports = {
   myLogin: myLogin,
