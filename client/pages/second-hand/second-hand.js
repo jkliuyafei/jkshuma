@@ -11,15 +11,8 @@ Page({
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-       qcloud.myLogin({
-         loginUrl:config.service.myLoginUrl,
-         success:function(res){
-           
-         },
-         fail:function(e){
-            console.log(e)
-         }
-       });
+var that=this
+that.getSecondGoods()
 
   },
   onReady: function () {
@@ -113,13 +106,13 @@ Page({
     })
     wx.removeStorageSync('secondGoods')
     wx.removeStorageSync('shareMessage')
-    qcloud.request({
+    qcloud.myRequest({
       url: config.service.secGoodsUrl,
       login:true,
       success: function (res) {
         that.setData({
-          secondGoods: res.data.secondGoods,
-          shareMessage: res.data.shareMessage
+          secondGoods: res.data.data.secondGoods,
+          shareMessage: res.data.data.shareMessage
         })
         wx.setStorage({
           key: 'secondGoods',

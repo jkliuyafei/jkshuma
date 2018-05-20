@@ -38,6 +38,31 @@ class MyAuthAPI {
             'respond' => compact('openid', 'skey')
         ];
     }
+    
+    public static function checkLogin($skey) {
+        $userinfo = User::findUserBySKey($skey);
+        if ($userinfo === NULL) {
+            return [
+                'loginState' => Constants::E_AUTH,
+                'userinfo' => []
+            ];
+        }
+        
+        $wxLoginExpires = Conf::getWxLoginExpires();
+        $timeDifference = time() - strtotime($userinfo->last_visit_time);
+        
+        if ($timeDifference > $wxLoginExpires) {
+            return [
+                'loginState' => Constants::E_AUTH,
+                'userinfo' => []
+            ];
+        } else {
+            return [
+                'loginState' => Constants::S_AUTH,
+                'userinfo' => $userinfo->open_id
+            ];
+        }
+    }
 
    
 

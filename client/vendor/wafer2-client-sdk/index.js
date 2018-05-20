@@ -1,6 +1,7 @@
 var constants = require('./lib/constants');
 var login = require('./lib/login');
 var myLogin=require('./lib/myLogin');
+var myRequest=require('./lib/myRequest');
 var Session = require('./lib/session');
 var request = require('./lib/request');
 var Tunnel = require('./lib/tunnel');
@@ -11,15 +12,14 @@ var authHeader = function() {
 
 var exports = module.exports = {
     login: login.login,
-    setLoginUrl: login.setLoginUrl,
+    setLoginUrl: myLogin.setLoginUrl,
     LoginError: login.LoginError,
     myLogin:myLogin.myLogin,
+    myRequest:myRequest.request,
     clearSession: Session.clear,
-
     request: request.request,
     RequestError: request.RequestError,
     authHeader: authHeader,
-
     Tunnel: Tunnel,
 };
 

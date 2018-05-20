@@ -18,6 +18,19 @@ class MyLoginService {
             ];
         }
     }
+    
+    public static function check() {
+        try {
+            $skey = self::getHttpHeader(Constants::WX_HEADER_SKEY);
+            
+            return MyAuthAPI::checkLogin($skey);
+        } catch (Exception $e) {
+            return [
+                'loginState' => Constants::E_AUTH,
+                'error' => $e->getMessage()
+            ];
+        }
+    }
 
 
     private static function getHttpHeader($headerKey) {

@@ -69,6 +69,10 @@ var myLogin = function myLogin(options) {
   }
 
 };
+var setLoginUrl = function (loginUrl) {
+  defaultOptions.loginUrl = loginUrl;
+};
 module.exports = {
   myLogin: myLogin,
+  setLoginUrl: setLoginUrl,
 };
