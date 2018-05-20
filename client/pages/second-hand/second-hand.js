@@ -11,16 +11,16 @@ Page({
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-var that=this
-that.getSecondGoods()
-
+    var that = this
+    util.checkAuthTab(config.service.getAuthTab, function (res) {
+      if (res.uploadAuth == 1) {
+        that.setData({
+          btnShowOrNot: false
+        })
+      }
+      that.getSecondGoods(); 
+    })
   },
-  onReady: function () {
-    // 页面渲染完成
-    this.dialog = this.selectComponent("#dialog"); 
-  },
-
-  /*
   onShow: function () {
     // 页面显示,根据缓存判断是不是从发布页面过来的，是的话就刷新页面
     var that = this
@@ -29,33 +29,6 @@ that.getSecondGoods()
       that.getSecondGoods();
       wx.setStorageSync('up_refer', 0);
     }
-    util.checkAuth({
-      success: function () {
-        //执行api逻辑
-        
-        util.checkAuthTab(config.service.getAuthTab, function (res) {
-          if (res.uploadAuth == 1) {
-            that.setData({
-              btnShowOrNot: false
-            })
-          }
-          that.getSecondGoods(); 
-        })
-      },
-      fail: function () {
-        that.dialog.showDialog();
-      }
-    })
-    
-  },
-
-  onHide: function () {
-    // 页面隐藏
-    this.dialog.hideDialog();
-  },
-  */
-  onUnload: function () {
-    // 页面关闭
   },
   /**
  * 用户点击右上角分享
@@ -67,8 +40,6 @@ that.getSecondGoods()
       title: shareMessageTitle,
     }
   },
-
-
   //发布按钮，点击进入发布界面
   uploadGoods: function () {
     wx.navigateTo({
@@ -108,7 +79,7 @@ that.getSecondGoods()
     wx.removeStorageSync('shareMessage')
     qcloud.myRequest({
       url: config.service.secGoodsUrl,
-      login:true,
+      login: true,
       success: function (res) {
         that.setData({
           secondGoods: res.data.data.secondGoods,
@@ -116,34 +87,13 @@ that.getSecondGoods()
         })
         wx.setStorage({
           key: 'secondGoods',
-          data: res.data.secondGoods,
+          data: res.data.data.secondGoods,
         })
         wx.setStorage({
           key: 'shareMessage',
-          data: res.data.shareMessage,
+          data: res.data.data.shareMessage,
         })
         wx.hideLoading()
-      }
-    })
-  },
-  //未授权userInfo弹出授权框后的逻辑处理
-  myGetUserInfo: function (e) {
-    var that = this;
-    util.myGetUserInfo({
-      userInfo: e,
-      success: function () {
-        that.dialog.hideDialog();
-        //执行api逻辑
-        util.checkAuthTab(config.service.getAuthTab, function (res) {
-          if (res.uploadAuth == 1) {
-            that.setData({
-              btnShowOrNot: false
-            })
-          }
-          that.getSecondGoods(); 
-        })
-      },
-      fail: function () {
       }
     })
   }

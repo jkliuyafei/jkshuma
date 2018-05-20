@@ -34,8 +34,3 @@
   <view class='goods-describe title-color'>{{curSecondGoods.goodsDescribe}}</view>
   <image class='goods-image' mode='widthFix' wx:for='{{curSecondGoods.goodsImage}}' wx:key='index' src='{{item}}' data-index='{{index}}' bindtap='seeBigImage'></image>
 </view>
-<view class="container">
-    <dialog id='dialog'
-    bind:myGetUserInfo="myGetUserInfo">
-    </dialog>
-</view>

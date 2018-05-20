@@ -1,6 +1,3 @@
 {
-    "navigationBarTitleText": "二手商品",
-    "usingComponents": {
-      "dialog": "/components/dialog/dialog"
-    }
+    "navigationBarTitleText": "二手商品"
 }

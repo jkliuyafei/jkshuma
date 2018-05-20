@@ -75,7 +75,7 @@ var myGetUserInfo = (option) => {
 var checkAuthTab = (authTabUrl, callback) => {
   var userAuthTable = wx.getStorageSync('userAuthTable');
   if (userAuthTable.length == 0) {
-    qcloud.request({
+    qcloud.myRequest({
       url: authTabUrl,
       login: true,
       success: function (res) {

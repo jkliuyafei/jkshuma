@@ -14,37 +14,13 @@ Page({
   onLoad: function (options) {
     var that=this;
     // 页面初始化 options为页面跳转所带来的参数 
+    var that = this
+    util.checkAuthTab(config.service.getAuthTab, function (res) {
+      that.getNewPhoneQuotation();
+    })
     that.showTime()
   },
-  onReady: function () {
-    // 页面渲染完成
-    this.dialog = this.selectComponent("#dialog");
-  },
-  onShow: function () {
-    // 页面显示
-    var that = this
-    util.checkAuth({
-      success: function () {
-        //执行api逻辑
-       
-        util.checkAuthTab(config.service.getAuthTab, function (res) {
-          that.getNewPhoneQuotation()
-        })
-        
-      },
-      fail: function () {
-        that.dialog.showDialog();
-      }
-    })
 
-  },
-  onHide: function () {
-    // 页面隐藏
-    this.dialog.hideDialog();
-  },
-  onUnload: function () {
-    // 页面关闭
-  },
   //用户分享
   onShareAppMessage: function () {
     var that = this
@@ -65,13 +41,13 @@ Page({
       title: '报价更新中',
       mask: 'true',
     })
-    qcloud.request({
+    qcloud.myRequest({
       url: config.service.phoneQuotation,
       login:true,
       success: function (res) {
         that.setData({
-          newPhoneQuotation: res.data.newPhoneQuotation,
-          shareMessage: res.data.shareMessage
+          newPhoneQuotation: res.data.data.newPhoneQuotation,
+          shareMessage: res.data.data.shareMessage
         })
         wx.hideLoading()
       },
@@ -94,21 +70,6 @@ showTime:function(){
     updateTime:curTime
   })
 },
-myGetUserInfo: function (e) {
-  var that = this;
-  util.myGetUserInfo({
-    userInfo: e,
-    success: function () {
-      //执行api逻辑
-      that.dialog.hideDialog();
-      util.checkAuthTab(config.service.getAuthTab, function (res) {
-        that.getNewPhoneQuotation()
-      })
-    },
-    fail: function () {
-      console.log('未授权')
-    }
-  })
-}
+
 
 })

@@ -1,7 +1,4 @@
 {
-    "navigationBarTitleText": "新机价格",
-    "usingComponents": {
-      "dialog": "/components/dialog/dialog"
-    }
+    "navigationBarTitleText": "新机价格"
 
 }

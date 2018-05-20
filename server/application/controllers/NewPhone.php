@@ -1,7 +1,11 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
+use \QCloud_WeApp_SDK\Auth\MyLoginService as MyLoginService;
+use QCloud_WeApp_SDK\Constants as Constants;
 class NewPhone extends CI_Controller {
 	public function index() {
+	    $resultLogin = MyLoginService::check();
+	    if ($resultLogin['loginState'] === Constants::S_AUTH) {
 		$response = array ();
 		$brandArr = array ();
 		$phoneQuotation = array ();
@@ -72,7 +76,12 @@ class NewPhone extends CI_Controller {
 			}
 		}
 		$response ['newPhoneQuotation'] = $phoneQuotation;
-		echo json_encode ( $response, JSON_UNESCAPED_UNICODE );
+		//echo json_encode ( $response, JSON_UNESCAPED_UNICODE );
+		$this->json([
+		    'code' => 0,
+		    'data' => $response
+		]);
+	}
 	}
 }
 ?>

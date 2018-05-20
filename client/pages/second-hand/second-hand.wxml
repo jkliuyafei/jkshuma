@@ -1,10 +1,10 @@
 <!--pages/second-hand/second-hand.wxml-->
 <view class="head">
-  <view class="inventory" bindtap="goodsInventoryTable" hover='true' hover-class='view-hover'>二手商品库存表</view>
+  <view class="inventory" bindtap="goodsInventoryTable" hover='true' hover-class='view-hover' ><text decode='true'>&gt;&gt;点击查看商品库存&lt;&lt;</text></view>
   <image src="../../image/btn_post.png" mode="aspectFit" class="post-btn" bindtap="uploadGoods" hidden="{{btnShowOrNot}}"></image>
 </view>
   <scroll-view class='goods-scroll' scroll-y='true' enable-back-to-top='true'>
-  <block wx:for='{{secondGoods}}' wx:key='index' wx:for-item='secondGoods' wx:key='index'>
+  <block wx:for='{{secondGoods}}' wx:key='index' wx:for-item='secondGoods'>
     <view class='goods-item' data-index='{{index}}' bindtap='seeGoodsDetail'>
       <view class='goods-head-content'>
         <view class='left-content'>
@@ -24,8 +24,3 @@
     </view>
     </block>
   </scroll-view>
-  <view class="container">
-    <dialog id='dialog'
-    bind:myGetUserInfo="myGetUserInfo">
-    </dialog>
-</view>
