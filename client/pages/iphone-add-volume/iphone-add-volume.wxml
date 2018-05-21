@@ -20,8 +20,3 @@
     <view class='statement-text on'>4.摔的特别严重的手机，扩容有风险不建议扩容，因扩容引起的问题，本店质保三个月。</view>
   </view>
 </scroll-view>
-<view class="container">
-    <dialog id='dialog'
-    bind:myGetUserInfo="myGetUserInfo">
-    </dialog>
-</view>

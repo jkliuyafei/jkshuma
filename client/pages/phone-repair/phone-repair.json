@@ -1,6 +1,3 @@
 {
-    "navigationBarTitleText": "手机维修",
-    "usingComponents": {
-      "dialog": "/components/dialog/dialog"
-    }
+    "navigationBarTitleText": "手机维修"
 }

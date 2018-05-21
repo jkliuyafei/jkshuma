@@ -29,7 +29,7 @@ var myLogin = function myLogin(options) {
               Session.set(res);
               options.success(res.openid)
               console.log(res.openid)
-              console.log('这是访问服务器的输出')
+              console.log('登陆过程，这是访问服务器的输出')
             }else{
               console.log('响应成功但是没数据')
               res='未知错误'
@@ -55,7 +55,7 @@ var myLogin = function myLogin(options) {
     wx.checkSession({
       success: function () {
         options.success(session.openid);
-        console.log('这是session的输出')
+        console.log('这是登陆过程检测session是否过期后，session的输出')
         console.log(session.openid)
       },
 

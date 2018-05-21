@@ -1,6 +1,4 @@
 {
-  "navigationBarTitleText": "手机靓号",
-  "usingComponents": {
-    "dialog": "/components/dialog/dialog"
-  }
+  "navigationBarTitleText": "手机靓号"
+  
 }

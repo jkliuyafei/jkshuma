@@ -19,20 +19,26 @@ Page({
     var that = this
     var shareGoodsId = options.shareGoodsId
     var curIndex = options.curIndex
-    if(typeof(shareGoodsId)=='undefined'){
+    if (typeof (shareGoodsId) == 'undefined') {
       var secondGoods = wx.getStorageSync('secondGoods')
       if (secondGoods.length !== 0) {
         var curSecondGoods = secondGoods[curIndex]
-        console.log(curSecondGoods)
+        
         that.setData({
           curSecondGoods: curSecondGoods
         })
       }
+    } else {
+      that.getGoodsDetail(shareGoodsId,function(res){
+        that.setData({
+          curSecondGoods: res
+        })
+      })
     }
-    
 
 
-    
+
+
 
   },
 
@@ -40,7 +46,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
@@ -57,11 +63,11 @@ Page({
   onShareAppMessage: function () {
     var that = this
     var curSecondGoods = that.data.curSecondGoods
-    var shareGoodsId=curSecondGoods['goodsId']
+    var shareGoodsId = curSecondGoods['id']
     var shareMessage = curSecondGoods.goodsTitle + '只要' + curSecondGoods.goodsPrice + '元!'
     return {
       title: shareMessage,
-      path: '/pages/second-goods-detail/second-goods-detail?shareGoodsIndex=' + shareGoodsIndex
+      path: '/pages/second-goods-detail/second-goods-detail?shareGoodsId='+shareGoodsId
     }
   },
   seeBigImage: function (e) {
@@ -76,30 +82,27 @@ Page({
     })
   },
 
-  //获取二手商品列表
-  getSecondGoods: function (callback) {
-    var that = this
+  //根据goodsId获取当前分享过来商品的详细信息
+  getGoodsDetail: function (goodsId,callback) {
     wx.showLoading({
-      title: '数据加载中，请稍后...',
+      title: '数据加载中...',
       mask: 'true',
     })
-    wx.removeStorageSync('secondGoods')
-    wx.removeStorageSync('shareMessage')
-    qcloud.request({
-      url: config.service.secGoodsUrl,
+    
+    qcloud.myRequest({
+      url: config.service.secGoodsDetailUrl,
       login: true,
+      data: { goodsId: goodsId },
+      method: 'POST',
       success: function (res) {
-        wx.setStorage({
-          key: 'secondGoods',
-          data: res.data.secondGoods,
-        })
-        wx.setStorage({
-          key: 'shareMessage',
-          data: res.data.shareMessage,
-        })
-        callback(res.data.secondGoods)
         wx.hideLoading()
+        
+        callback(res.data.data)
+      },
+      fail: function (e) {
+        console.log(e)
       }
     })
-  },
+
+  }
 })

@@ -17,65 +17,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+ var that=this
+ that.getAddTable()
+  
+  },
+
  
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    this.dialog = this.selectComponent("#dialog");
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    var that = this
-    util.checkAuth({
-      success: function () {
-        //执行api逻辑
-        
-        util.checkAuthTab(config.service.getAuthTab, function (res) {
-          that.getAddTable()
-        })
-
-      },
-      fail: function () {
-        that.dialog.showDialog();
-      }
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    this.dialog.hideDialog();
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
   /**
    * 用户点击右上角分享
    */
@@ -93,32 +40,17 @@ Page({
       title: '数据更新中',
       mask: 'true',
     })
-    qcloud.request({
+    qcloud.myRequest({
       url: config.service.addVolumeUrl,
       login:true,
       success: function (res) {
         that.setData({
-          iphoneAddVolume: res.data.iphoneAddVolume,
-          shareMessage: res.data.shareMessage
+          iphoneAddVolume: res.data.data.iphoneAddVolume,
+          shareMessage: res.data.data.shareMessage
         })
         wx.hideLoading()
       }
     })
   },
-  myGetUserInfo: function (e) {
-    var that = this;
-    util.myGetUserInfo({
-      userInfo: e,
-      success: function () {
-        //执行api逻辑
-        that.dialog.hideDialog();
-        util.checkAuthTab(config.service.getAuthTab, function (res) {
-          that.getAddTable()
-        })
-      },
-      fail: function () {
-        console.log('未授权')
-      }
-    })
-  }
+ 
 })

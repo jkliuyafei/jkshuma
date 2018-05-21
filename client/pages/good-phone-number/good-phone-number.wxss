@@ -64,12 +64,12 @@ border-radius: 30rpx 0 0 30rpx;
    border-bottom: 0.5px solid #dfdede;
 }
 .th {
-  height: 80rpx;
+  height: 60rpx;
   background-color: #36f;
   justify-content: center;
   color: #fff;
   text-align: center;
-  line-height: 80rpx;
+  line-height: 60rpx;
   border-right: 0.5px solid #dfdede;
 }
 .td {
@@ -81,19 +81,19 @@ border-radius: 30rpx 0 0 30rpx;
 }
 .numberIndex{
   width: 100rpx;
-   line-height: 80rpx;
+   line-height: 60rpx;
 }
 .phoneNumber{
   width: 260rpx;
-   line-height: 80rpx;
+   line-height: 60rpx;
 }
 .qCellCore{
   width: 140rpx;
-   line-height: 80rpx;
+   line-height: 60rpx;
 }
 .price{
   width: 140rpx;
-   line-height: 80rpx;
+   line-height: 60rpx;
 }
 .expensesDetail{
   width: 640rpx;
@@ -108,6 +108,7 @@ border-radius: 30rpx 0 0 30rpx;
 .th.expensesDetail{
   padding-left: 20rpx;
   text-align: left;
+  line-height: 60rpx;
 }
 .two-color {
   background-color: #e6f3f9;

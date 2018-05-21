@@ -26,8 +26,3 @@
     <view class='statement-text on'>4.主流品牌手机进水不开机、漏电、6p触摸失灵等主板问题，本店也可维修，详询点击右下角咨询客服，维修师傅检测后方可报价。</view>
   </view>
 </scroll-view>
-<view class="container">
-    <dialog id='dialog'
-    bind:myGetUserInfo="myGetUserInfo">
-    </dialog>
-</view>

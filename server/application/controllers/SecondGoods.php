@@ -33,7 +33,7 @@ class SecondGoods extends CI_Controller {
 	            $day=substr($uploadTime, 8,2);
 	            $hour=substr($uploadTime, 11,2);
 	            $minute=substr($uploadTime, 14,2);
-	            $secondGoods[$i]['goodsId']=$row['id'];
+	            $secondGoods[$i]['id']=$row['id'];
 	            $secondGoods[$i]['goodsTitle']=$row['goodsTitle'];
 	            $secondGoods[$i]['goodsDescribe']=$row['goodsDescribe'];
 	            $secondGoods[$i]['goodsImei']=$goodsImei;

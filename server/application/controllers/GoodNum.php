@@ -1,7 +1,11 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
+use \QCloud_WeApp_SDK\Auth\MyLoginService as MyLoginService;
+use QCloud_WeApp_SDK\Constants as Constants;
 class GoodNum extends CI_Controller {
 	public function index() {
+	    $resultLogin = MyLoginService::check();
+	    if ($resultLogin['loginState'] === Constants::S_AUTH) {
 		$response = array ();
 		$goodNumber = array ();
 		$this->load->database ();
@@ -54,7 +58,16 @@ class GoodNum extends CI_Controller {
 		$this->db->close ();
 		$i = $j = $k = 1;
 		$response ['goodNumber'] = $goodNumber;
-		echo json_encode ( $response, JSON_FORCE_OBJECT );
+		$this->json([
+		    'code' => 0,
+		    'data' => $response
+		]);
+	    }else {
+	        $this->json([
+	            'code' => -1,
+	            'data' => []
+	        ]);
+	    }
 	}
 }
 ?>

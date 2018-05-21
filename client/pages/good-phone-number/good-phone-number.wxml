@@ -50,8 +50,3 @@
  
 </view>
 </scroll-view>
-  <view class="container">
-    <dialog id='dialog'
-    bind:myGetUserInfo="myGetUserInfo">
-    </dialog>
-</view>

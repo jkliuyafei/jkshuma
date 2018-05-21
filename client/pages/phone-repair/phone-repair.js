@@ -21,48 +21,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    this.dialog = this.selectComponent("#dialog");
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    var that = this
-    util.checkAuth({
-      success: function () {
-        //执行api逻辑
-        
-        util.checkAuthTab(config.service.getAuthTab, function (res) {
-          that.getRepairTab()
-        })
-
-      },
-      fail: function () {
-        that.dialog.showDialog();
-      }
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    this.dialog.hideDialog();
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+  var that=this
+  that.getRepairTab()
 
   },
 
@@ -103,34 +63,16 @@ Page({
       title: '维修报价更新中',
       mask: 'true',
     })
-    qcloud.request({
+    qcloud.myRequest({
       url: config.service.phoneRepairUrl,
       login:true,
       success: function (res) {
         that.setData({
-          phoneRepairTable: res.data.phoneRepairTable,
-          shareMessage: res.data.shareMessage
+          phoneRepairTable: res.data.data.phoneRepairTable,
+          shareMessage: res.data.data.shareMessage
         })
         wx.hideLoading()
       }
     })
   },
-  myGetUserInfo: function (e) {
-    var that = this;
-    util.myGetUserInfo({
-      userInfo: e,
-      success: function () {
-        //执行api逻辑
-        that.dialog.hideDialog();
-        util.checkAuthTab(config.service.getAuthTab, function (res) {
-          that.getRepairTab()
-        })
-      },
-      fail: function () {
-        console.log('未授权')
-      }
-    })
-  }
-
-
 })

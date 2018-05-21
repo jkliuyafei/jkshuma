@@ -28,6 +28,8 @@ var config = {
     getAuthTab:`${host}/weapp/AuthTab`,
     //获取二手机列表
     secGoodsUrl: `${host}/weapp/SecondGoods`,
+    //二手商品详情
+    secGoodsDetailUrl: `${host}/weapp/SecondGoodsDetail`,
     //发布二手机时，选取品牌型号
     chooseBrandUrl: `${host}/weapp/ChooseBrand`,
     //发布二手机时，选取品牌型号对应的内存颜色
