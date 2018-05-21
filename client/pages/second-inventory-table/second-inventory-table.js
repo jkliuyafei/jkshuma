@@ -11,7 +11,8 @@ Page({
       tableHeadItem:{goodsIndex:'序号',goodsBrand:'品牌',goodsModel:'型号',goodsColor:'颜色',goodsVolume:'容量',goodsImei:'设备标识',
       goodsPrice:'价格',goodsDetail:'详情'},
       secondGoods:[],
-      shareMessage:null
+      shareMessage:null,
+      goHomeShow:true
   },
 
   /**
@@ -19,9 +20,14 @@ Page({
    */
   onLoad: function (options) {
     var that=this
+    var isShare=options.isShare
+    if(isShare==1){
+      that.setData({
+        goHomeShow:false
+      })
+    }
     util.checkAuthTab(config.service.getAuthTab, function (res) {
       var secondGoods = wx.getStorageSync('secondGoods');
-
       var shareMessage = wx.getStorageSync('shareMessage')
       if (secondGoods.length == 0) {
         that.getSecondGoods();
@@ -43,7 +49,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    that.getGoodsTable()
+   // that.getGoodsTable()
   },
 
   /**
@@ -61,6 +67,7 @@ Page({
     var shareMessageTitle=that.data.shareMessage
       return{
         title:shareMessageTitle,
+        path: '/pages/second-inventory-table/second-inventory-table?isShare=1'  
       }
   },
   seeGoodsDetail:function(e){
@@ -98,4 +105,9 @@ Page({
       }
     })
   },
+  goHome:function(){
+    wx.switchTab({
+      url: '/pages/second-hand/second-hand',
+    })
+  }
 })

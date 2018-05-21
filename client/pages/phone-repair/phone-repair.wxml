@@ -2,7 +2,7 @@
 <scroll-view class='top-tab'scroll-x='true'>
   <block  wx:for='{{phoneRepairTable}}' wx:key='index'><view class="tab-item {{curIndex==index?'on':''}}" data-index='{{index}}' data-brand-id='{{item.brandId}}' bindtap='switchTopTab'>{{item.phoneBrand}}</view></block>
 </scroll-view>
-<button class='custom-service' type='primary' open-type='contact'>咨询客服</button>
+<button class='custom-service' type='primary' open-type='contact' hidden="{{serviceShow}}">咨询客服</button>
 <scroll-view class='content-scroll' scroll-into-view='{{toView}}' enable-back-to-top="true" scroll-with-animation='true' scroll-y='true'>
   <view class='brand-content' wx:for='{{phoneRepairTable}}' wx:for-item='brandItem' wx:key='index' id='{{brandItem.brandId}}'>
     <view class='brand-name'>{{brandItem.phoneBrand}}</view>
@@ -26,3 +26,4 @@
     <view class='statement-text on'>4.主流品牌手机进水不开机、漏电、6p触摸失灵等主板问题，本店也可维修，详询点击右下角咨询客服，维修师傅检测后方可报价。</view>
   </view>
 </scroll-view>
+<view class="back-to-home" hidden="{{goHomeShow}}" bindtap='goHome'>去首页</view>

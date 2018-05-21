@@ -32,3 +32,4 @@
   <view class='statement-text hint-color'>1.极客数码所售二手商品成色、有无维修、功能是否有瑕疵皆如实描述；</view>
   <view class='statement-text hint-color'>2.极客数码所售二手商品，排除人为原因，皆提供一个月质保。</view>
 </view>
+<view class="back-to-home" hidden="{{goHomeShow}}" bindtap='goHome'>去首页</view>

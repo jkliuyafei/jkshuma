@@ -1,5 +1,5 @@
 <!--pages/iphone-add-volume/iphone-add-volume.wxml-->
-<button class='custom-service' type='primary' open-type='contact'>咨询客服</button>
+<button class='custom-service' type='primary' open-type='contact' hidden="{{serviceShow}}">咨询客服</button>
 <scroll-view scroll-y class='main-content'>
   <view class='tr'>
     <view class='th {{index}}' wx:for='{{tableHead}}' wx:key='index'>{{item}}</view>
@@ -20,3 +20,4 @@
     <view class='statement-text on'>4.摔的特别严重的手机，扩容有风险不建议扩容，因扩容引起的问题，本店质保三个月。</view>
   </view>
 </scroll-view>
+<view class="back-to-home" hidden="{{goHomeShow}}" bindtap='goHome'>去首页</view>

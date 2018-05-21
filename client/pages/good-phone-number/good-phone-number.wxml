@@ -3,7 +3,7 @@
 <view class='number-tab'>
   <view class="tab-item {{curIndex==index?'on':''}}" wx:for='{{operators}}' wx:key='index' bindtap='switchOperators' data-table-index='{{index}}' data-id='{{item.id}}'>{{item.name}}</view>
 </view>
-<button class='custom-service' type='primary' open-type='contact'>咨询客服</button>
+<button class='custom-service' type='primary' open-type='contact' hidden="{{serviceShow}}">咨询客服</button>
 <scroll-view class='number-scroll' enable-back-to-top="true" scroll-with-animation='true' scroll-y='true' scroll-into-view="{{toView}}">
   <view id='chinaMobile' class='number-operators-name title-color'>中国移动</view>
   <view class='tr'>
@@ -50,3 +50,4 @@
  
 </view>
 </scroll-view>
+<view class="back-to-home" hidden="{{goHomeShow}}" bindtap='goHome'>去首页</view>

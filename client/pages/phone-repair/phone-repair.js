@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    goHomeShow: true,
+    serviceShow:false,
     shareMessage: '',
     phoneRepairTable: [],
     curIndex: 0,
@@ -22,6 +24,13 @@ Page({
    */
   onLoad: function (options) {
   var that=this
+  var isShare = options.isShare
+  if (isShare == 1) {
+    that.setData({
+      goHomeShow: false,
+      serviceShow:true
+    })
+  }
   that.getRepairTab()
 
   },
@@ -48,6 +57,7 @@ Page({
     var shareMessageTitle = that.data.shareMessage
     return {
       title: shareMessageTitle,
+      path: '/pages/phone-repair/phone-repair?isShare=1' 
     }
   },
   switchTopTab: function (e) {
@@ -73,6 +83,11 @@ Page({
         })
         wx.hideLoading()
       }
+    })
+  },
+  goHome: function () {
+    wx.switchTab({
+      url: '/pages/second-hand/second-hand',
     })
   },
 })

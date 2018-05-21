@@ -14,3 +14,18 @@
 .red-color{
   color: #e4393c;
 }
+.back-to-home{
+  position: fixed;
+  line-height: 100rpx;
+  text-align: center;
+  bottom: 100rpx;
+  right:15rpx;
+  z-index: 100;
+  width:100rpx;
+  height:100rpx;
+  font-size: 30rpx;
+  border-radius:50%;
+  background: rgba(86, 187, 55, 0.9);
+  box-shadow: 0 0 15rpx 5rpx #888;
+  color:#fff;
+}

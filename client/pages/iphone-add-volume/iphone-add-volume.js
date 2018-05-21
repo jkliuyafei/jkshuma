@@ -8,21 +8,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-      iphoneAddVolume:[],
-      shareMessage:'',
-      tableHead:{model:'型号',volume32:'32G',volume64:'64G',volume128:'128G',volume256:'256G'}
+    goHomeShow: true,
+    serviceShow: false,
+    iphoneAddVolume: [],
+    shareMessage: '',
+    tableHead: { model: '型号', volume32: '32G', volume64: '64G', volume128: '128G', volume256: '256G' }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
- var that=this
- that.getAddTable()
-  
+    var that = this
+    var isShare = options.isShare
+    if (isShare == 1) {
+      that.setData({
+        goHomeShow: false,
+        serviceShow: true
+      })
+    }
+    that.getAddTable()
   },
-
- 
   /**
    * 用户点击右上角分享
    */
@@ -31,10 +37,11 @@ Page({
     var shareMessageTitle = that.data.shareMessage
     return {
       title: shareMessageTitle,
+      path: '/pages/iphone-add-volume/iphone-add-volume?isShare=1'
     }
-  
+
   },
-  getAddTable:function(){
+  getAddTable: function () {
     var that = this
     wx.showLoading({
       title: '数据更新中',
@@ -42,7 +49,7 @@ Page({
     })
     qcloud.myRequest({
       url: config.service.addVolumeUrl,
-      login:true,
+      login: true,
       success: function (res) {
         that.setData({
           iphoneAddVolume: res.data.data.iphoneAddVolume,
@@ -52,5 +59,10 @@ Page({
       }
     })
   },
- 
+  goHome: function () {
+    wx.switchTab({
+      url: '/pages/second-hand/second-hand',
+    })
+  },
+
 })

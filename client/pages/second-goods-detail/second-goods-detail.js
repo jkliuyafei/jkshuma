@@ -10,6 +10,7 @@ Page({
   data: {
     curIndex: null,
     curSecondGoods: null,
+    goHomeShow: true
   },
 
   /**
@@ -17,6 +18,12 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    var isShare = options.isShare
+    if (isShare == 1) {
+      that.setData({
+        goHomeShow: false
+      })
+    }
     var shareGoodsId = options.shareGoodsId
     var curIndex = options.curIndex
     if (typeof (shareGoodsId) == 'undefined') {
@@ -67,7 +74,7 @@ Page({
     var shareMessage = curSecondGoods.goodsTitle + '只要' + curSecondGoods.goodsPrice + '元!'
     return {
       title: shareMessage,
-      path: '/pages/second-goods-detail/second-goods-detail?shareGoodsId='+shareGoodsId
+      path: '/pages/second-goods-detail/second-goods-detail?shareGoodsId='+shareGoodsId+"&isShare=1"
     }
   },
   seeBigImage: function (e) {
@@ -104,5 +111,10 @@ Page({
       }
     })
 
+  },
+  goHome: function () {
+    wx.switchTab({
+      url: '/pages/second-hand/second-hand',
+    })
   }
 })
