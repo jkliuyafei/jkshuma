@@ -68,7 +68,8 @@ Page({
     var shareMessageTitle = that.data.shareMessage
     return {
       title: shareMessageTitle,
-      path: '/pages/good-phone-number/good-phone-number?isShare=1'
+      path: '/pages/good-phone-number/good-phone-number?isShare=1',
+      imageUrl:'../../image/goodnum.jpg'
     }
   },
   switchOperators: function (e) {
