@@ -13,6 +13,7 @@
     "pages/iphone-add-volume/iphone-add-volume",
     "pages/second-goods-detail/second-goods-detail",
     "pages/shop-manage/shop-manage",
+    "pages/share-message-manage/share-message-manage",
     "pages/wx-test/wx-test"
   ],
   "window":{

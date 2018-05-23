@@ -1,2 +1,7 @@
 <!--pages/shop-manage/shop-manage.wxml-->
-<view>分享页</view>
+<view class='super-manage-wrap'>
+  <view class='manage-type'>超级管理员功能区</view>
+  <view class='manage-content'>
+    <view class='function-btn' data-page-name='share-message-manage' bindtap='navToFunction'>分享页管理</view>
+  </view>
+</view>

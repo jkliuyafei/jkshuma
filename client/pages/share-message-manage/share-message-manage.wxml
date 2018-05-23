@@ -1,0 +1,26 @@
+<!--pages/share-message-manage/share-message-manage.wxml-->
+<view class='main-content'>
+  <view class='top-wrap'>
+    <view class='page-image-wrap'>
+      <view class='page-image'>
+        <view>
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            页面
+          </picker>
+        </view>
+        <view>图片序号</view>
+      </view>
+      <view class='image-wrap'>
+        <image src='../../image/goodNum.jpg' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class='share-message-wrap'>
+      <view class='form-label'>推广语:</view>
+      <input class='message-input' type='text' placeholder='这是一个有趣的小程序哦。'></input>
+    </view>
+    <view class='submit-wrap'>
+      <button class='submit-btn' type='primary'>提交</button>
+    </view>
+  </view>
+  <view class='bottom-wrap'></view>
+</view>

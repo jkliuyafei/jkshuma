@@ -1,1 +1,40 @@
 /* pages/shop-manage/shop-manage.wxss */
+.super-manage-wrap{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-top: 0.5px solid #dfdede;
+  border-bottom: 0.5px solid #dfdede;
+}
+.manage-type{
+  margin-left: 20rpx;
+  margin-right:20rpx;
+  width: auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: left;
+  border-bottom: 1px dashed #e5e5e5;
+  font-size: 36rpx;
+  color: #b2b2b2;
+}
+.manage-content{
+  width: auto;
+  margin:20rpx;
+  display: flex;
+  min-height: 200rpx;
+}
+.function-btn{
+  width:33.3%;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  margin-top:15rpx;
+  margin-bottom:15rpx;
+  padding-left:15rpx;
+  padding-right:15rpx;
+  border: 1px solid #b2b2b2;
+  border-radius:30rpx;
+  color: #fff;
+  background: rgba(86, 187, 55, 1);
+  box-shadow: 0 0 8rpx 5rpx #888;
+}
