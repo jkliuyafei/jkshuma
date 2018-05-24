@@ -45,7 +45,11 @@ var config = {
     //获取维修报价
     phoneRepairUrl: `${host}/weapp/PhoneRepair`,
     //新机报价
-    phoneQuotation: `${host}/weapp/NewPhone`
+    phoneQuotation: `${host}/weapp/NewPhone`,
+    //上传分享页图片
+    uploadShareImg:`${host}/weapp/UploadShareImg`,
+    //上传分享页图片url地址
+    uploadShareImgUrl:`${host}/weapp/UploadShareImgUrl`
   },
 };
 

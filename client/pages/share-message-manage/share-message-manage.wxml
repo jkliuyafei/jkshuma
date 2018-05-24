@@ -1,28 +1,31 @@
-
 <view class='main-wrap'>
   <view class='top-wrap'>
-  <view class='row-one'>
-    <view class='page-image-wrap'>
-      <view class='item-wrap'>
-        <view class='left-hint'>页面:</view>
-        <view class='right-input'>二手机</view>
+    <view class='row-one'>
+      <view class='page-image-wrap'>
+        <view class='item-wrap'>
+          <view class='left-hint'>页面:</view>
+          <view class='right-input'>二手机</view>
+        </view>
+        <view class='item-wrap'>
+          <view class='left-hint'>图片序号:</view>
+          <view class='right-input'>2</view>
+        </view>
       </view>
-      <view class='item-wrap'>
-        <view class='left-hint'>图片序号:</view>
-        <view class='right-input'>2</view>
+      <view class='image-wrap'>
+        <image src='../../image/goodNum.png' mode='widthFix' class='image-pre'></image>
       </view>
     </view>
-    <view class='image-wrap'>
-  <image src='../../image/goodNum.png' mode='widthFix' class='image-pre'></image>
-</view>
-</view>
     <view class='item-wrap'>
       <view class='left-hint'>推广语:</view>
       <input class='form-message-input' placeholder='请填写推广广告语'></input>
     </view>
 
     <button class='submit-btn' type='primary'>提交</button>
-    <view class='all-image-head-wrap'>图片总览</view>
+    
+    <view class='all-image-head-wrap'>图片总览
+    <image class='post-image-btn' src="../../image/btn_post.png" mode="aspectFit" bindtap='upLoadImage'></image>
+    </view>
+    
   </view>
   <scroll-view class='bottom-wrap' scroll-y='true'>
     <view class='image-item-wrap'>
