@@ -69,7 +69,7 @@ Page({
     return {
       title: shareMessageTitle,
       path: '/pages/good-phone-number/good-phone-number?isShare=1',
-      imageUrl:'../../image/goodnum.jpg'
+      imageUrl:'../../image/goodnum.png'
     }
   },
   switchOperators: function (e) {
