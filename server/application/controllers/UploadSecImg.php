@@ -50,7 +50,7 @@ class UploadSecImg extends CI_Controller {
 			
 			// 上传文件
 			$fileFolder = $folderName ? $folderName . '/secondGoodsImg/' : '';
-			$fileKey = $fileFolder . md5(mt_rand()) . '-' . $file['name'];
+			$fileKey = $fileFolder.$file['name'];
 			$uploadStatus = $cosClient->upload(
 					$bucketName,
 					$fileKey,

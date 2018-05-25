@@ -49,7 +49,11 @@ var config = {
     //上传分享页图片
     uploadShareImg:`${host}/weapp/UploadShareImg`,
     //上传分享页图片url地址
-    uploadShareImgUrl:`${host}/weapp/UploadShareImgUrl`
+    uploadShareImgUrl:`${host}/weapp/UploadShareImgUrl`,
+    //获取分享页面的所有信息和图片
+    getShareMessage: `${host}/weapp/GetShareMessage`,
+    //更新分享信息推广语和图片
+    uploadShareMessage:`${host}/weapp/UploadShareMessage`
   },
 };
 

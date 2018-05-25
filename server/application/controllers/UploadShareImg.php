@@ -50,7 +50,7 @@ class UploadShareImg extends CI_Controller {
             
             // 上传文件
             $fileFolder = $folderName ? $folderName . '/shareImage/' : '';
-            $fileKey =$file['name'];
+            $fileKey = $fileFolder.$file['name'];
             $uploadStatus = $cosClient->upload(
                 $bucketName,
                 $fileKey,
@@ -63,7 +63,8 @@ class UploadShareImg extends CI_Controller {
                         'imgUrl' => $uploadStatus['ObjectURL'],
                         'size' => $file['size'],
                         'mimeType' => $file['type'],
-                        'name' => $fileKey
+                        'name' => $fileKey,
+                        'fileFolder'=>$fileFolder
                     ]
                 ]);
         } catch (Exception $e) {

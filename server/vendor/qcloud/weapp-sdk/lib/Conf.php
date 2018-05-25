@@ -42,7 +42,7 @@ class Conf {
     // COS 配置信息
     private static $Cos = [
         'region' => 'cn-south',
-        'fileBucket' => 'qcloudtest',
+        'fileBucket' => 'test',
         'uploadFolder' => '',
         'maxSize' => 5,
         'field' => 'file'
