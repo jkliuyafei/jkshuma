@@ -10,16 +10,14 @@ class SecondGoods extends CI_Controller {
 	        $secondGoods=array();
 	        $this->load->database ();
 	        //获取页面分享信息
-	        $queryShareMessage = $this->db->get_where ( 'share_message', array (
-	            'page' => 'secondGoodsInventoryTable'
-	        ) );
-	        $rowShareMessage=$queryShareMessage->row();
-	        if(isset($rowShareMessage)){
-	            $response=array(
-	                'shareMessage' => $rowShareMessage->message,
-	            );
-	        }
-	        //获取二手商品主题信息，然后根据id查询商品图片表，获取商品图片
+	        $this->db->select('*')->from('share_message')->where('page','secondGoodsHome');
+	        $queryShareMessage=$this->db->get();
+	        $shareMessage=$queryShareMessage->row_array();
+	        $response=array(
+	            'shareMessage' => $shareMessage
+	        );
+
+	        //获取二手商品主体信息，然后根据id查询商品图片表，获取商品图片
 	        $this->db->select('*')->from('goods_second')->where('goodsStatus',1)->order_by('uploadTime','DESC');
 	        $queryGoods=$this->db->get();
 	        $i=0;

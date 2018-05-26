@@ -9,15 +9,12 @@ class GoodNum extends CI_Controller {
 		$response = array ();
 		$goodNumber = array ();
 		$this->load->database ();
-		$queryShareMessage = $this->db->get_where ( 'share_message', array (
-				'page' => 'goodNumber' 
-		) );
-		$rowShareMessage = $queryShareMessage->row ();
-		if (isset ( $rowShareMessage )) {
-			$response = array (
-					'shareMessage' => $rowShareMessage->message 
-			);
-		}
+		$this->db->select('*')->from('share_message')->where('page','goodNumber');
+		$queryShareMessage=$this->db->get();
+		$shareMessage=$queryShareMessage->row_array();
+		$response=array(
+		    'shareMessage' => $shareMessage
+		);	
 		$queryNumber = $this->db->get ( 'phone_number' );
 		$i = 1;
 		$j = 1;

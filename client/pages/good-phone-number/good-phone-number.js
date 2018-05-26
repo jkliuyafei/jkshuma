@@ -23,7 +23,7 @@ Page({
       price: '价格',
       expensesDetail: '套餐内容'
     },
-    shareMessage: '',
+    shareMessage: [],
     chinaMobileNumber: [],
     chinaUnicomNumber: [],
     chinaTelecom: []
@@ -65,11 +65,11 @@ Page({
    */
   onShareAppMessage: function () {
     var that = this
-    var shareMessageTitle = that.data.shareMessage
+    
     return {
-      title: shareMessageTitle,
+      title: that.data.shareMessage.message,
       path: '/pages/good-phone-number/good-phone-number?isShare=1',
-      imageUrl:'../../image/goodNum.png'
+      imageUrl: that.data.shareMessage.imageUrl
     }
   },
   switchOperators: function (e) {

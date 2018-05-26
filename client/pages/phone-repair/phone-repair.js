@@ -9,7 +9,7 @@ Page({
   data: {
     goHomeShow: true,
     serviceShow:false,
-    shareMessage: '',
+    shareMessage: [],
     phoneRepairTable: [],
     curIndex: 0,
     modelDetailHead: {
@@ -35,29 +35,17 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
+ 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
     var that = this
-    var shareMessageTitle = that.data.shareMessage
+  
     return {
-      title: shareMessageTitle,
-      path: '/pages/phone-repair/phone-repair?isShare=1' 
+      title: that.data.shareMessage.message,
+      path: '/pages/phone-repair/phone-repair?isShare=1',
+      imageUrl: that.data.shareMessage.imageUrl
     }
   },
   switchTopTab: function (e) {

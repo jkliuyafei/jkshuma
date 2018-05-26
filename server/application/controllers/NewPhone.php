@@ -11,13 +11,12 @@ class NewPhone extends CI_Controller {
 		$phoneQuotation = array ();
 		$this->load->database ();
 		// 查询本页面的分享信息
-		$queryShareMessage = $this->db->get_where ( 'share_message', array (
-				'page' => 'newPhoneQuotation' 
-		) );
-		$rowShareMessage = $queryShareMessage->row ();
-		if (isset ( $rowShareMessage )) {
-			$response ['shareMessage'] = $rowShareMessage->message;
-		}
+		$this->db->select('*')->from('share_message')->where('page','newPhoneQuotation');
+		$queryShareMessage=$this->db->get();
+		$shareMessage=$queryShareMessage->row_array();
+		$response=array(
+		    'shareMessage' => $shareMessage
+		);
 		// 查询brand表获取brand和brandId存入数组
 		$queryBrand = $this->db->get ( 'brand' );
 		foreach ( $queryBrand->result_array () as $row ) {
@@ -76,7 +75,7 @@ class NewPhone extends CI_Controller {
 			}
 		}
 		$response ['newPhoneQuotation'] = $phoneQuotation;
-		//echo json_encode ( $response, JSON_UNESCAPED_UNICODE );
+		
 		$this->json([
 		    'code' => 0,
 		    'data' => $response

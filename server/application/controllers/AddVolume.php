@@ -10,15 +10,12 @@ class AddVolume extends CI_Controller {
 		$response=array();
 		$iphoneAddVolume=array();
 		$this->load->database ();
-		$queryShareMessage = $this->db->get_where ( 'share_message', array (
-				'page' => 'iphoneAddVolume' 
-		) );
-		$rowShareMessage=$queryShareMessage->row();
-		if(isset($rowShareMessage)){
+		$this->db->select('*')->from('share_message')->where('page','iphoneAddVolume');
+		$queryShareMessage=$this->db->get();
+		$shareMessage=$queryShareMessage->row_array();
 			$response=array(
-					'shareMessage' => $rowShareMessage->message,
+					'shareMessage' => $shareMessage
 			);
-		}
 		$queryAddVolume=$this->db->get('iphone_add_volume');
 		$j=0;
 		foreach ($queryAddVolume->result() as $rowAddVolume){

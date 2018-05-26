@@ -16,13 +16,12 @@ class PhoneRepair extends CI_Controller
             $phoneRepairTable = array();
             $this->load->database();
             // 查询本页面的分享信息；
-            $queryShareMessage = $this->db->get_where('share_message', array(
-                'page' => 'phoneRepair'
-            ));
-            $rowShareMessage = $queryShareMessage->row();
-            if (isset($rowShareMessage)) {
-                $response['shareMessage'] = $rowShareMessage->message;
-            }
+            $this->db->select('*')->from('share_message')->where('page','phoneRepair');
+            $queryShareMessage=$this->db->get();
+            $shareMessage=$queryShareMessage->row_array();
+            $response=array(
+                'shareMessage' => $shareMessage
+            );
             // 查询brand表获取品牌和brandId；
             $queryBrandId = $this->db->get('brand');
             foreach ($queryBrandId->result_array() as $row) {

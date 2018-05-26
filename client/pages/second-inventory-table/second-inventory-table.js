@@ -28,13 +28,12 @@ Page({
     }
     util.checkAuthTab(config.service.getAuthTab, function (res) {
       var secondGoods = wx.getStorageSync('secondGoods');
-      var shareMessage = wx.getStorageSync('shareMessage')
+      that.getShareMessage()
       if (secondGoods.length == 0) {
         that.getSecondGoods();
       } else {
         that.setData({
-          secondGoods: secondGoods,
-          shareMessage: shareMessage
+          secondGoods: secondGoods
         })
       }
 
@@ -64,10 +63,10 @@ Page({
    */
   onShareAppMessage: function () {
     var that = this
-    var shareMessageTitle=that.data.shareMessage
       return{
-        title:shareMessageTitle,
-        path: '/pages/second-inventory-table/second-inventory-table?isShare=1'  
+        title: that.data.shareMessage.message,
+        path: '/pages/second-inventory-table/second-inventory-table?isShare=1' ,
+        imageUrl: that.data.shareMessage.imageUrl 
       }
   },
   seeGoodsDetail:function(e){
@@ -84,22 +83,16 @@ Page({
       mask: 'true',
     })
     wx.removeStorageSync('secondGoods')
-    wx.removeStorageSync('shareMessage')
     qcloud.myRequest({
       url: config.service.secGoodsUrl,
       login: true,
       success: function (res) {
         that.setData({
           secondGoods: res.data.data.secondGoods,
-          shareMessage: res.data.data.shareMessage
         })
         wx.setStorage({
           key: 'secondGoods',
           data: res.data.data.secondGoods,
-        })
-        wx.setStorage({
-          key: 'shareMessage',
-          data: res.data.data.shareMessage,
         })
         wx.hideLoading()
       }
@@ -108,6 +101,19 @@ Page({
   goHome:function(){
     wx.switchTab({
       url: '/pages/second-hand/second-hand',
+    })
+  },
+  getShareMessage:function(){
+    var that=this
+    qcloud.myRequest({
+      url: config.service.getPageShare +'?page=secondGoodsInventoryTable',
+      login:true,
+      success:function(res){
+        var res=res.data
+        that.setData({
+          shareMessage:res.data
+        })
+      }
     })
   }
 })

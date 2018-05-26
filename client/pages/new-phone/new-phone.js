@@ -8,7 +8,7 @@ Page({
     newPhoneQuotation: [],
     curIndex: 0,
     toView: 'iphone',
-    shareMessage: '',
+    shareMessage: [],
     updateTime:''
   },
   onLoad: function (options) {
@@ -24,9 +24,9 @@ Page({
   //用户分享
   onShareAppMessage: function () {
     var that = this
-    var shareMessageTitle = that.data.shareMessage
     return {
-      title: shareMessageTitle,
+      title: that.data.shareMessage.message,
+      imageUrl: that.data.shareMessage.imageUrl
     }
   },
   switchTab(e) {

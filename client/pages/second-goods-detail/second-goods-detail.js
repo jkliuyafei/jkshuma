@@ -10,7 +10,8 @@ Page({
   data: {
     curIndex: null,
     curSecondGoods: null,
-    goHomeShow: true
+    goHomeShow: true,
+    shareMessage:[]
   },
 
   /**
@@ -19,6 +20,7 @@ Page({
   onLoad: function (options) {
     var that = this
     var isShare = options.isShare
+    that.getShareMessage()
     if (isShare == 1) {
       that.setData({
         goHomeShow: false
@@ -30,7 +32,6 @@ Page({
       var secondGoods = wx.getStorageSync('secondGoods')
       if (secondGoods.length !== 0) {
         var curSecondGoods = secondGoods[curIndex]
-        
         that.setData({
           curSecondGoods: curSecondGoods
         })
@@ -42,27 +43,7 @@ Page({
         })
       })
     }
-
-
-
-
-
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
 
   /**
    * 用户点击右上角分享
@@ -74,7 +55,8 @@ Page({
     var shareMessage = curSecondGoods.goodsTitle + '只要' + curSecondGoods.goodsPrice + '元!'
     return {
       title: shareMessage,
-      path: '/pages/second-goods-detail/second-goods-detail?shareGoodsId='+shareGoodsId+"&isShare=1"
+      path: '/pages/second-goods-detail/second-goods-detail?shareGoodsId='+shareGoodsId+"&isShare=1",
+      imageUrl: that.data.shareMessage.imageUrl 
     }
   },
   seeBigImage: function (e) {
@@ -103,7 +85,6 @@ Page({
       method: 'POST',
       success: function (res) {
         wx.hideLoading()
-        
         callback(res.data.data)
       },
       fail: function (e) {
@@ -115,6 +96,19 @@ Page({
   goHome: function () {
     wx.switchTab({
       url: '/pages/second-hand/second-hand',
+    })
+  },
+  getShareMessage: function () {
+    var that = this
+    qcloud.myRequest({
+      url: config.service.getPageShare + '?page=secondGoodsDetail',
+      login: true,
+      success: function (res) {
+        var res = res.data
+        that.setData({
+          shareMessage: res.data
+        })
+      }
     })
   }
 })

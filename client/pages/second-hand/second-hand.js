@@ -5,7 +5,7 @@ var util = require('../../utils/util.js')
 Page({
   data: {
     secondGoods: [],
-    shareMessage: null,
+    shareMessage: [],
     curIndex: 0,
     btnShowOrNot: true
   },
@@ -35,9 +35,9 @@ Page({
  */
   onShareAppMessage: function () {
     var that = this
-    var shareMessageTitle = that.data.shareMessage
     return {
-      title: shareMessageTitle,
+      title: that.data.shareMessage.message,
+      imageUrl: that.data.shareMessage.imageUrl
     }
   },
   //发布按钮，点击进入发布界面
@@ -76,7 +76,6 @@ Page({
       mask: 'true',
     })
     wx.removeStorageSync('secondGoods')
-    wx.removeStorageSync('shareMessage')
     qcloud.myRequest({
       url: config.service.secGoodsUrl,
       login: true,
@@ -88,10 +87,6 @@ Page({
         wx.setStorage({
           key: 'secondGoods',
           data: res.data.data.secondGoods,
-        })
-        wx.setStorage({
-          key: 'shareMessage',
-          data: res.data.data.shareMessage,
         })
         wx.hideLoading()
       }

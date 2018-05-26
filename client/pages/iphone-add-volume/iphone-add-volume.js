@@ -28,23 +28,18 @@ Page({
       })
     }
     that.getAddTable()
-    that.getPageShare(function (res) {
-      that.setData({
-        shareMessage: res.data
-      })
-    })
+   
   },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    var that = this
-    var shareMessage=that.data.shareMessage
-    return {
-      title: shareMessage.message,
-      path: '/pages/iphone-add-volume/iphone-add-volume?isShare=1',
-      imageUrl: shareMessage.imageUrl
-    }
+    var that=this
+   return{
+     title:that.data.shareMessage.message,
+     path: '/pages/iphone-add-volume/iphone-add-volume?isShare=1',
+     imageUrl:that.data.shareMessage.imageUrl
+   }
   },
   getAddTable: function () {
     var that = this
@@ -67,16 +62,6 @@ Page({
   goHome: function () {
     wx.switchTab({
       url: '/pages/second-hand/second-hand',
-    })
-  },
-  getPageShare: function (callback) {
-    qcloud.myRequest({
-      login: true,
-      url: config.service.getPageShare + '?page=iphoneAddVolume',
-      success: function (res) {
-        var res = res.data
-        callback(res)
-      }
     })
   }
 
