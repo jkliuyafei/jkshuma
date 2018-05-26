@@ -9,10 +9,7 @@ class ChooseParameter extends CI_Controller
     public function index()
     {
         $resultLogin = LoginService::check();
-        if ($resultLogin['loginState'] === Constants::E_AUTH) {
-            echo '无操作权限';
-            return;
-        } else {
+        if ($resultLogin['loginState'] === Constants::S_AUTH) {
             $volumeGroup = array();
             $colorGroup = array();
             $response = array();
@@ -38,7 +35,15 @@ class ChooseParameter extends CI_Controller
                 'colorGroup' => $colorGroup,
                 'volumeGroup' => $volumeGroup
             );
-            echo json_encode($response, JSON_UNESCAPED_UNICODE);
+            $this->json([
+                'code' => 0,
+                'data' => $response
+            ]);
+        } else {
+            $this->json([
+                'code' => - 1,
+                'data' => []
+            ]);
         }
     }
 }

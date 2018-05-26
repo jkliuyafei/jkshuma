@@ -6,7 +6,7 @@
       <image class="upload-item-img-left" src="../../image/add_img.png"></image>
       <view class='add-img-hint'>添加图片</view>
     </view>
-    <view class="image-item" wx:for="{{upGoodsInfo.localImageUrl}}" wx:key="index">
+    <view class="image-item" wx:for="{{localImageUrl}}" wx:key="index">
       <view class="image-upload-hint" hidden="{{imageUploadHint[index]}}">上传中</view>
       <image mode="aspectFill" class="upload-item-img" src="{{item}}">
       </image>
@@ -26,8 +26,8 @@
   <view class="detail-item" bindtap="chooseBrand" hover='true' hover-class='view-hover'>
     <text class="detail-item-text title-color">品牌型号</text>
     <view class="goods-parameter-wrap">
-      <view class="goods-parameter title-color">{{upGoodsInfo.goodsBrand}}</view>
-      <view class="goods-parameter title-color">{{upGoodsInfo.goodsModel}}</view>
+      <view class="goods-parameter title-color">{{goodsParameter.goodsBrand}}</view>
+      <view class="goods-parameter title-color">{{goodsParameter.goodsModel}}</view>
       <view class="goods-hint hint-color" hidden="{{statusHint.brandHint}}">选择品牌型号</view>
     </view>
     <image class="forward" src="../../image/forward.png"></image>
@@ -35,8 +35,8 @@
   <view class="detail-item" bindtap="chooseParameter" hover='true' hover-class='view-hover'>
     <text class="detail-item-text title-color">基本参数</text>
     <view class="goods-parameter-wrap">
-      <view class="goods-parameter title-color">{{upGoodsInfo.goodsColor==null?'':upGoodsInfo.goodsColor}}</view>
-      <view class="goods-parameter title-color">{{upGoodsInfo.goodsVolume==null?'':upGoodsInfo.goodsVolume}}</view>
+      <view class="goods-parameter title-color">{{goodsParameter.goodsColor==null?'':goodsParameter.goodsColor}}</view>
+      <view class="goods-parameter title-color">{{goodsParameter.goodsVolume==null?'':goodsParameter.goodsVolume}}</view>
       <view class="goods-hint" hidden="{{statusHint.parameterHint}}">选择参数</view>
     </view>
     <image class="forward" src="../../image/forward.png"></image>
@@ -51,7 +51,7 @@
   <view class="detail-item">
     <text class="detail-item-text title-color">价格</text>
     <view class="goods-parameter-wrap">
-      <input name="goodsPrice" cursor-spacing='20' value='{{upGoodsInfo.goodsPrice}}' focus='{{priceFocus}}' class="goods-parameter on title-color" type='number' maxlength='4' placeholder="开个价" bindconfirm='goodsPriceInput' bindblur='goodsPriceInput' />
+      <input name="goodsPrice" cursor-spacing='20' value='{{upGoodsInfo.goodsPrice}}' focus='{{priceFocus}}' class="goods-parameter on title-color" type='number' maxlength='5' placeholder="开个价" bindconfirm='goodsPriceInput' bindblur='goodsPriceInput' />
     </view>
     <image class="forward" src="../../image/forward.png"></image>
   </view>

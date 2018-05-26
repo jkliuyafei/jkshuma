@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 use \QCloud_WeApp_SDK\Auth\MyLoginService as MyLoginService;
 use QCloud_WeApp_SDK\Constants as Constants;
 
-class GetShareMessage extends CI_Controller
+class GetPageShare extends CI_Controller
 {
     
     public function index()
@@ -13,17 +13,13 @@ class GetShareMessage extends CI_Controller
         $this->load->database();
         $result = MyLoginService::check();
         if ($result['loginState'] === Constants::S_AUTH) {
-          $resultMessage=$this->db->get('share_message');
-          $messageArr=$resultMessage->result_array();
-          $this->db->select('*')->from('share_image')->order_by('id','DESC');
-          $resultImage=$this->db->get();
-          $imageArr=$resultImage->result_array();
-          $response['messageArr']=$messageArr;
-          $response['imageArr']=$imageArr;
-          $this->json([
-              'code' => 0,
-              'data' => $response
-          ]);
+            $page=$_GET['page'];
+            $this->db->select('*')->from('share_message')->where('page',$page);
+            $result=$this->db->get();
+            $this->json([
+                'code' => 0,
+                'data' => $result->row_array()
+            ]);
         } else {
             $this->json([
                 'code' => -1,

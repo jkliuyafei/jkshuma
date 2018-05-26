@@ -34,8 +34,8 @@ var config = {
     chooseBrandUrl: `${host}/weapp/ChooseBrand`,
     //发布二手机时，选取品牌型号对应的内存颜色
     chooseParameterUrl: `${host}/weapp/ChooseParameter`,
-    //二手商品上传图片
-    uploadSecImgUrl: `${host}/weapp/UploadSecImg`,
+    //上传图片接口
+    uploadImage:`${host}/weapp/UploadImage`,
     //上传二手商品信息
     uploadGoodsUrl: `${host}/weapp/UploadGoods`,
     //获取手机靓号
@@ -46,14 +46,14 @@ var config = {
     phoneRepairUrl: `${host}/weapp/PhoneRepair`,
     //新机报价
     phoneQuotation: `${host}/weapp/NewPhone`,
-    //上传分享页图片
-    uploadShareImg:`${host}/weapp/UploadShareImg`,
     //上传分享页图片url地址
     uploadShareImgUrl:`${host}/weapp/UploadShareImgUrl`,
     //获取分享页面的所有信息和图片
     getShareMessage: `${host}/weapp/GetShareMessage`,
     //更新分享信息推广语和图片
-    uploadShareMessage:`${host}/weapp/UploadShareMessage`
+    uploadShareMessage:`${host}/weapp/UploadShareMessage`,
+    //获取具体某个页面的share信息
+    getPageShare:`${host}/weapp/GetPageShare`
   },
 };
 

@@ -1,6 +1,7 @@
 var config = require('../../config');
 var qcloud = require('../../vendor/wafer2-client-sdk/index');
 var util = require('../../utils/util.js')
+var myUploadImage=require('../../utils/uploadImage.js')
 var imageUrl = ''
 var pageId = 0
 var message = ''
@@ -40,13 +41,11 @@ Page({
             mask: 'true',
           })
           for (var i = 0; i < localImageUrl.length; i++) {
-            wx.uploadFile({
-              url: config.service.uploadShareImg,
+            myUploadImage.uploadImage({
               filePath: localImageUrl[i],
-              name: 'file',
+              formData: { folderName: '/shareImage/',imageIndex:i },
               success: function (res) {
                 console.log(res)
-                res = JSON.parse(res.data)
                 imageUrl.push(res.data.imgUrl)
                 if (imageUrl.length == localImageUrl.length) {
                   qcloud.myRequest({
@@ -67,11 +66,12 @@ Page({
 
                     },
                     fail: function (e) {
-
                     }
                   })
                 }
-
+              },
+              fail:function(e){
+                console.log(e)
               }
             })
           }

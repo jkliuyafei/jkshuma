@@ -5,7 +5,7 @@ use \QCloud_WeApp_SDK\Conf as Conf;
 use \QCloud_WeApp_SDK\Cos\CosAPI as Cos;
 use \QCloud_WeApp_SDK\Constants as Constants;
 
-class UploadShareImg extends CI_Controller {
+class UploadImage extends CI_Controller {
     public function index() {
         // 处理文件上传
         $file = $_FILES['file']; // 去除 field 值为 file 的文件
@@ -13,6 +13,8 @@ class UploadShareImg extends CI_Controller {
         ini_set('upload_max_filesize', '10M');
         ini_set('post_max_size', '10M');
         
+        $myFolderName=$_POST['folderName'];
+        $imageIndex=$_POST['imageIndex'];
         
         // 限制文件大小：5M 以内
         if ($file['size'] > 5 * 1024 * 1024) {
@@ -49,7 +51,7 @@ class UploadShareImg extends CI_Controller {
             }
             
             // 上传文件
-            $fileFolder = $folderName ? $folderName . '/shareImage/' : '';
+            $fileFolder = $folderName ? $folderName . $myFolderName : '';
             $fileKey = $fileFolder.$file['name'];
             $uploadStatus = $cosClient->upload(
                 $bucketName,
@@ -63,8 +65,9 @@ class UploadShareImg extends CI_Controller {
                         'imgUrl' => $uploadStatus['ObjectURL'],
                         'size' => $file['size'],
                         'mimeType' => $file['type'],
-                        'name' => $fileKey,
-                        'fileFolder'=>$fileFolder
+                        'name' => $fileKey, 
+                        'imageIndex'=>$imageIndex
+                        
                     ]
                 ]);
         } catch (Exception $e) {

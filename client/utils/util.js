@@ -1,4 +1,4 @@
-                                                      var qcloud = require('../vendor/wafer2-client-sdk/index')
+var qcloud = require('../vendor/wafer2-client-sdk/index')
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -84,10 +84,24 @@ var checkAuthTab = (authTabUrl, callback) => {
         callback(userAuthTable);
       }
     })
-  }else{
+  } else {
     callback(userAuthTable);
   }
 
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, checkAuth, myGetUserInfo, checkAuthTab }
+var extend = function extend(target) {
+  var sources = Array.prototype.slice.call(arguments, 1);
+
+  for (var i = 0; i < sources.length; i += 1) {
+    var source = sources[i];
+    for (var key in source) {
+      if (source.hasOwnProperty(key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+  return target;
+};
+
+module.exports = { formatTime, showBusy, showSuccess, showModel, checkAuth, myGetUserInfo, checkAuthTab, extend }
