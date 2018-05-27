@@ -23,7 +23,7 @@ border-radius: 30rpx 0 0 30rpx;
   border-bottom: 0.5px solid #dfdede;
   top: 0;
   width: 100%;
-  z-index: 10000;
+  z-index: 100;
 }
 
 .tab-item{
@@ -43,7 +43,7 @@ border-radius: 30rpx 0 0 30rpx;
 
 .number-scroll{
   width: 1300rpx;
-  height: 1200rpx;
+  height: auto;
   margin-top: 80rpx;
   display: flex;
   flex-direction: column;

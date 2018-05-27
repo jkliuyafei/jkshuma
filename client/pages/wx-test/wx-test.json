@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "测试",
-  "usingComponents": {
-    "dialog": "/components/dialog/dialog"
-  }
-}

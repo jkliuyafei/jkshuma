@@ -23,6 +23,7 @@ page {
   height: 78rpx;
   position: fixed;
   top:0;
+  z-index: 100;
   width: 100%;
   white-space: nowrap;
   background: #fafafa;
@@ -51,8 +52,8 @@ page {
 
 .content-scroll {
   width: 2380rpx;
-  height: 1200rpx;
-  margin-top: 78rpx;
+  height: auto;
+ margin-top: 78rpx;
  
 }
 

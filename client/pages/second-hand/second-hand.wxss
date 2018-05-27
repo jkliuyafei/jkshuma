@@ -42,7 +42,7 @@ page {
   display: flex;
   margin-top: 80rpx;
   flex-direction: column;
-  height: 1200rpx;
+  height: auto;
   width: 750rpx;
 }
 

@@ -3,9 +3,7 @@
 <button class="service-item" type="default" bindtap="phoneRepair">手机维修</button>
 <button class="service-item" type="default" bindtap="iphoneAddVolume">苹果扩容</button>
 <button class="service-item" type="default" bindtap="phoneNumber">手机靓号</button>
-<button class="service-item" type="default" bindtap="shopManage">管理入口</button>
-<button class="service-item" type="default" bindtap="wxTest">测试页面</button>
-
+<button class="service-item" type="default" bindtap="shopManage" hidden='{{showOrNot}}'>管理入口</button>
 </view>
 
 

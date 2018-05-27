@@ -10,7 +10,7 @@ page{
   right: 0;
   height: 60rpx;
   width: 145rpx;
-  z-index: 10000;
+  z-index: 100;
   font-size: 24rpx;
   line-height: 60rpx;
   border-radius: 30rpx 0 0 30rpx;
@@ -58,7 +58,6 @@ page{
 .content-right{
   width: 77%;
   height: 100%;
-
 }
 .nav-scroll{
   height: 100%;

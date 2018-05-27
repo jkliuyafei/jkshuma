@@ -1,7 +1,4 @@
 {
-    "navigationBarTitleText": "增值服务",
-    "usingComponents": {
-      "dialog": "/components/dialog/dialog"
-    }
+    "navigationBarTitleText": "增值服务"
 
 }

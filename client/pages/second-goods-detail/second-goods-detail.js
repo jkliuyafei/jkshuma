@@ -37,11 +37,14 @@ Page({
         })
       }
     } else {
-      that.getGoodsDetail(shareGoodsId,function(res){
-        that.setData({
-          curSecondGoods: res
+      util.checkAuthTab(config.service.getAuthTab,function(res){
+        that.getGoodsDetail(shareGoodsId, function (res) {
+          that.setData({
+            curSecondGoods: res
+          })
         })
       })
+      
     }
   },
 
@@ -88,7 +91,7 @@ Page({
         callback(res.data.data)
       },
       fail: function (e) {
-        console.log(e)
+       
       }
     })
 

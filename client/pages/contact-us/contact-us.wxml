@@ -43,7 +43,7 @@
     <view class='shop-info-text title-color'>门店照片</view>
   </view>
   <view class='shop-photo-content' >
-   <image class='shop-photo' bindtap='seeBigPhoto' mode='aspectFill' wx:for='{{shopPhoto}}' src='{{item}}' data-index='{{index}}' ></image>
+   <image class='shop-photo' bindtap='seeBigPhoto' mode='aspectFill' wx:for='{{shopPhoto}}' wx:key='index' src='{{item}}' data-index='{{index}}' ></image>
   </view>
   
 </scroll-view>

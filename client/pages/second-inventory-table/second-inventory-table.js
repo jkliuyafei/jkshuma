@@ -71,7 +71,6 @@ Page({
   },
   seeGoodsDetail:function(e){
     var curIndex=e.currentTarget.dataset.index
-    console.log(curIndex)
     wx.navigateTo({
       url: '../second-goods-detail/second-goods-detail?curIndex=' + curIndex,
     })

@@ -19,10 +19,8 @@ Page({
   },
   onShow: function () {
     var that = this
-    console.log('这里执行了')
     var goodsParameter = wx.getStorageSync('goodsParameter')
     var statusHint = wx.getStorageSync('statusHint')
-    console.log(goodsParameter)
     that.setData({
       goodsParameter: goodsParameter,
       statusHint: statusHint
@@ -77,7 +75,7 @@ Page({
             }
           },
           fail: function (e) {
-            console.log(e)
+           
           }
         })
       }
@@ -98,7 +96,6 @@ Page({
     var that = this
     var goodsParameter = that.data.goodsParameter
     var goodsModel = goodsParameter.goodsModel
-    console.log(goodsModel)
     if (goodsModel !== undefined) {
       wx.navigateTo({
         url: '../second-choose-parameter/second-choose-parameter?goodsModel=' + goodsModel,
@@ -156,7 +153,7 @@ Page({
     var localImageUrl = that.data.localImageUrl
     var upGoodsInfo = that.data.upGoodsInfo
     var goodsParameter = that.data.goodsParameter
-    if (true) {
+    if (upGoodsInfo.goodsTitle && upGoodsInfo.goodsDescribe && goodsParameter.goodsBrand && goodsParameter.goodsModel && goodsParameter.goodsColor && goodsParameter.goodsVolume && upGoodsInfo.goodsPrice && upGoodsInfo.goodsImei && localImageUrl.length) {
       that.uploadImage(function (res) {
         qcloud.myRequest({
           login:true,
@@ -171,7 +168,6 @@ Page({
           },
           method: 'POST',
           success:function(res){
-            console.log(res)
             that.goodsClean()
             wx.showModal({
               title: '上传成功',

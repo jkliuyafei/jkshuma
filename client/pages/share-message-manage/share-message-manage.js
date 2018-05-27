@@ -45,7 +45,7 @@ Page({
               filePath: localImageUrl[i],
               formData: { folderName: '/shareImage/',imageIndex:i },
               success: function (res) {
-                console.log(res)
+               
                 imageUrl.push(res.data.imgUrl)
                 if (imageUrl.length == localImageUrl.length) {
                   qcloud.myRequest({
@@ -71,7 +71,7 @@ Page({
                 }
               },
               fail:function(e){
-                console.log(e)
+                
               }
             })
           }
@@ -116,7 +116,6 @@ Page({
   },
   uploadInfo: function () {
     var that=this
-    console.log(imageUrl)
     if (message.length == 0) {
       wx.showToast({
         title: '请填写推广语',

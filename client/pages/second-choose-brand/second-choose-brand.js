@@ -51,8 +51,6 @@ Page({
   chooseModel: function (e) {
     var goodsBrand = this.data.goodsBrand
     var goodsModel = e.target.dataset.model
-    console.log(goodsBrand)
-    console.log(goodsModel)
     var goodsParameter=new Object()
     var statusHint=new Object()
     goodsParameter.goodsBrand=goodsBrand
