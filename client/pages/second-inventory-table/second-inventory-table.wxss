@@ -1,9 +1,9 @@
 .table {
-  width: 100%;
+  width: auto;
 }
 
 .tr {
-  width: 1330rpx;
+  width: 1530rpx;
   display: flex;
   border-bottom: 0.5px solid #dfdede;
 }
@@ -36,7 +36,10 @@
 .goodsBrand {
   width: 150rpx;
 }
-
+.goodsModel{
+  width: 400rpx;
+  font-size: 28rpx;
+}
 .goodsColor {
   width: 160rpx;
 }

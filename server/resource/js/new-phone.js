@@ -1,4 +1,4 @@
-var config=require(./config.js)
+
 $(document).ready(function() {
 	var okPriceBrand=false;
 	$("#phone-brand").change(function() {
