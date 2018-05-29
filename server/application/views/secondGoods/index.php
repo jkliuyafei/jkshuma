@@ -22,8 +22,8 @@
 						<td><?php echo $secondGoods_item['id']?></td>
 						<td><?php echo $secondGoods_item['goodsBrand']?></td>
 						<td><?php echo $secondGoods_item['goodsModel']?></td>
-						<td><?php echo $secondGoods_item['goodsColor']?></td>
 						<td><?php echo $secondGoods_item['goodsVolume']?></td>
+						<td><?php echo $secondGoods_item['goodsColor']?></td>
 						<td><?php echo $secondGoods_item['goodsImei']?></td>
 						<td><input style="border:none;width:100%;height:100%;text-align:center;" type="text" name="<?php echo $secondGoods_item['id']?>"
 							placeholder="<?php echo $secondGoods_item['goodsPrice']?>"></input></td>
