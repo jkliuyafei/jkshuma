@@ -52,7 +52,7 @@ page {
 
 .content-scroll {
   width: 2380rpx;
-  height: auto;
+  height: 100%;
  margin-top: 78rpx;
  
 }

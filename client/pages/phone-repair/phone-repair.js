@@ -25,7 +25,8 @@ Page({
   onLoad: function (options) {
   var that=this
   var isShare = options.isShare
-  if (isShare == 1) {
+  var qcId=options.qcId
+  if (isShare == 1||typeof(qcId)!='undefined'){
     that.setData({
       goHomeShow: false,
       serviceShow:true

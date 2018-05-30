@@ -1,6 +1,6 @@
 <!--pages/second-goods-detail/second-goods-detail.wxml-->
 <view class='main-title'>
-  <view class='goods-title title-color'>{{curSecondGoods.goodsTitle}}</view>
+  <text class='goods-title title-color' selectable='true'>{{curSecondGoods.goodsTitle}}</text>
   <view class='price-wrap'>
     <view class='renminbi red-color'>￥</view>
     <view class='goods-price red-color'>{{curSecondGoods.goodsPrice}}</view>
@@ -31,7 +31,7 @@
       <view class='parameter-item'>{{curSecondGoods.goodsImei}}</view>
     </view>
   </view>
-  <view class='goods-describe title-color'>{{curSecondGoods.goodsDescribe}}</view>
+  <text selectable='true' class='goods-describe title-color'>{{curSecondGoods.goodsDescribe}}</text>
   <image class='goods-image' mode='widthFix' wx:for='{{curSecondGoods.goodsImage}}' wx:key='index' src='{{item}}' data-index='{{index}}' bindtap='seeBigImage'></image>
 </view>
 <view class="back-to-home" hidden="{{goHomeShow}}" bindtap='goHome'>去首页</view>
