@@ -1,4 +1,4 @@
-var config=require('./config.js');
+
 $(document).ready(function() {
 	$("#phone-brand").change(function() {
 		$("#phone-model").empty();
