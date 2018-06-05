@@ -18,7 +18,9 @@
 				</thead>
 				<tbody>
 <?php foreach ($secondGoods as $secondGoods_item):?>
-<tr>
+<tr class="<?php if ($secondGoods_item['goodsStatus']==0) {
+				    echo "danger";
+				}?>">
 						<td><?php echo $secondGoods_item['id']?></td>
 						<td><?php echo $secondGoods_item['goodsBrand']?></td>
 						<td><?php echo $secondGoods_item['goodsModel']?></td>
