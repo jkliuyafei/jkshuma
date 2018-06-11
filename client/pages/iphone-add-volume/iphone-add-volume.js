@@ -28,7 +28,10 @@ Page({
         serviceShow: true
       })
     }
-    that.getAddTable()
+    util.getUserInfo(0, function (res) {
+      that.getAddTable()
+    })
+    
    
   },
   /**

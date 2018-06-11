@@ -6,8 +6,15 @@
 var host = 'https://qcy6umy7.qcloud.la';
 //var host='https://879515873.jkshuma.com';
 
-var config = {
+//角色权限表
+var authTable = [];
+authTable['superAdmin'] = { uploadAuth: 1,shopManageAuth:1 };
+authTable['business'] = { uploadAuth: 1, shopManageAuth: 1};
+authTable['agent'] = { uploadAuth: 0, shopManageAuth: 0};
+authTable['user'] = { uploadAuth: 0, shopManageAuth: 0};
 
+var config = {
+authTable:authTable,
   // 下面的地址配合云端 Demo 工作
   service: {
     host,
@@ -24,8 +31,8 @@ var config = {
 
     // 上传图片接口
     uploadUrl: `${host}/weapp/upload`,
-    //获取权限表
-    getAuthTab:`${host}/weapp/AuthTab`,
+    //获取用户信息包括openid和role
+    getUserInfoUrl:`${host}/weapp/GetUserInfo`,
     //获取二手机列表
     secGoodsUrl: `${host}/weapp/SecondGoods`,
     //二手商品详情
@@ -52,6 +59,8 @@ var config = {
     getShareMessage: `${host}/weapp/GetShareMessage`,
     //更新分享信息推广语和图片
     uploadShareMessage:`${host}/weapp/UploadShareMessage`,
+    //获取具体某个页面的share信息，比如二手机库存页面
+    getPageShare: `${host}/weapp/GetPageShare`
   },
 };
 

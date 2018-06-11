@@ -10,10 +10,12 @@ Page({
     btnShowOrNot: true
   },
   onLoad: function (options) {
+    
     // 页面初始化 options为页面跳转所带来的参数
     var that = this
-    util.checkAuthTab(config.service.getAuthTab, function (res) {
-      if (res.uploadAuth == 1) {
+    util.getUserInfo(0,function (res) {
+      var userAuth=res.userAuthObj;
+      if (userAuth.uploadAuth == 1) {
         that.setData({
           btnShowOrNot: false
         })

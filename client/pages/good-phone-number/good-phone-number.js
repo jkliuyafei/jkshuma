@@ -42,7 +42,10 @@ Page({
         serviceShow: true
       })
     }
-    that.getGoodNumber()
+    util.getUserInfo(0, function (res) {
+      that.getGoodNumber()
+    })
+    
   },
 
 

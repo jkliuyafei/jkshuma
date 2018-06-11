@@ -1,4 +1,5 @@
 var qcloud = require('../vendor/wafer2-client-sdk/index')
+var config = require('../config.js')
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -70,24 +71,37 @@ var myGetUserInfo = (option) => {
     option.fail();
   }
 }
-//获取权限表，先判定本地有没有权限表缓存，有的话直接返回，没有的话网络请求
+//获取userInfo得到openid和role，先判定本地有没有权缓存，有的话直接返回，没有的话网络请求,refresh参数决定是否刷新userInfo缓存
 
-var checkAuthTab = (authTabUrl, callback) => {
-  var userAuthTable = wx.getStorageSync('userAuthTable');
-  if (userAuthTable.length == 0) {
+var getUserInfo = (refresh, callback) => {
+  if (refresh == 1) {
     qcloud.myRequest({
-      url: authTabUrl,
+      url: config.service.getUserInfoUrl,
       login: true,
       success: function (res) {
-        var userAuthTable = res.data.data;
-        wx.setStorageSync('userAuthTable', userAuthTable)
-        callback(userAuthTable);
+        var userInfo = res.data.data;
+        userInfo.userAuthObj = config.authTable[userInfo.role];
+        wx.setStorageSync('userInfo', userInfo)
+        callback(userInfo);
       }
     })
   } else {
-    callback(userAuthTable);
+    var userInfo = wx.getStorageSync('userInfo');
+    if (userInfo.length == 0) {
+      qcloud.myRequest({
+        url: config.service.getUserInfoUrl,
+        login: true,
+        success: function (res) {
+          var userInfo = res.data.data;
+          userInfo.userAuthObj = config.authTable[userInfo.role];
+          wx.setStorageSync('userInfo', userInfo)
+          callback(userInfo);
+        }
+      })
+    } else {
+      callback(userInfo);
+    }
   }
-
 }
 
 var extend = function extend(target) {
@@ -104,4 +118,4 @@ var extend = function extend(target) {
   return target;
 };
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, checkAuth, myGetUserInfo, checkAuthTab, extend }
+module.exports = { formatTime, showBusy, showSuccess, showModel, checkAuth, myGetUserInfo, getUserInfo, extend }

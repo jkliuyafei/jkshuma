@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 use \QCloud_WeApp_SDK\Auth\MyLoginService as MyLoginService;
 use QCloud_WeApp_SDK\Constants as Constants;
 
-class AuthTab extends CI_Controller
+class GetUserInfo extends CI_Controller
 {
 
     public function index()
@@ -12,6 +12,8 @@ class AuthTab extends CI_Controller
         $result = MyLoginService::check();
         if ($result['loginState'] === Constants::S_AUTH) {
             $openId = $result['userinfo'];
+            $response=array();
+            $response['openId']=$openId;
             $this->load->database();
             // 查询该openid是否在user表中
             $this->db->select('*')
@@ -19,31 +21,24 @@ class AuthTab extends CI_Controller
                 ->where('openId', $openId);
             $queryUser = $this->db->get();
             $queryResult = $queryUser->row_array();
-            // 结果数组为空说明首次登陆，首次登陆默认role为4，把其openid存入user后，查询权限表role为4的权限
+            // 结果数组为空说明首次登陆，首次登陆默认role为user，把其openid存入user表，返回openid和role
             if (empty($queryResult)) {
                 $data = array(
                     'openId' => $openId
                 );
                 $queryInsert = $this->db->insert('user', $data);
                 if ($queryInsert == true) {
-                    $this->db->select('*')
-                        ->from('wechat_user_auth')
-                        ->where('role', '4');
-                    $query = $this->db->get();
+                    $response['role']="user";
                     $this->json([
                         'code' => 0,
-                        'data' => $query->row_array()
+                        'data' => $response
                     ]);
                 }
             }else{
-                $role=$queryResult['role'];
-                 $this->db->select('*')
-                 ->from('wechat_user_auth')
-                 ->where('role', $role);
-                 $query = $this->db->get();
+                $response['role']=$queryResult['role'];
                  $this->json([
                      'code' => 0,
-                     'data' => $query->row_array()
+                     'data' => $response
                  ]);
             }
         } else {

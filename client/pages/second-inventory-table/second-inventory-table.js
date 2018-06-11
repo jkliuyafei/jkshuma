@@ -26,7 +26,7 @@ Page({
         goHomeShow:false
       })
     }
-    util.checkAuthTab(config.service.getAuthTab, function (res) {
+    util.getUserInfo(0, function (res) {
       var secondGoods = wx.getStorageSync('secondGoods');
       that.getShareMessage()
       if (secondGoods.length == 0) {
@@ -109,6 +109,7 @@ Page({
       login:true,
       success:function(res){
         var res=res.data
+        console.log(res)
         that.setData({
           shareMessage:res.data
         })

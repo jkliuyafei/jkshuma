@@ -14,8 +14,7 @@ Page({
   onLoad: function (options) {
     var that=this;
     // 页面初始化 options为页面跳转所带来的参数 
-    var that = this
-    util.checkAuthTab(config.service.getAuthTab, function (res) {
+    util.getUserInfo(0, function (res) {
       that.getNewPhoneQuotation();
     })
     that.showTime()

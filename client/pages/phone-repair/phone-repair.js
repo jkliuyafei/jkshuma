@@ -32,7 +32,10 @@ Page({
       serviceShow:true
     })
   }
-  that.getRepairTab()
+  util.getUserInfo(0, function (res) {
+    that.getRepairTab()
+  })
+ 
 
   },
 
