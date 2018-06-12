@@ -9,7 +9,8 @@ var host = 'https://qcy6umy7.qcloud.la';
 //角色权限表
 var authTable = [];
 authTable['superAdmin'] = { uploadAuth: 1,shopManageAuth:1 };
-authTable['business'] = { uploadAuth: 1, shopManageAuth: 1};
+authTable['partnerMerchant'] = { uploadAuth: 1, shopManageAuth: 1};
+authTable['normalMerchant'] = { uploadAuth: 0, shopManageAuth: 0};
 authTable['agent'] = { uploadAuth: 0, shopManageAuth: 0};
 authTable['user'] = { uploadAuth: 0, shopManageAuth: 0};
 
