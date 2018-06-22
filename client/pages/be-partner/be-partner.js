@@ -38,6 +38,11 @@ Page({
           openBtn:false,
         })
       }
+      if (userRole == 'agent' && sceneData == 1007) {
+        that.setData({
+          openBtn: false,
+        })
+      }
     })
   },
 

@@ -1,2 +1,2 @@
 1.user表 增加email、password字段
-2.
+2.更改user表的role字段为varchar20 默认值为user
