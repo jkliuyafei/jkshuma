@@ -19,6 +19,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    //判断是否是分享过来的页面，是分享过来的就显示“回首页”按钮
     var isShare = options.isShare
     that.getShareMessage()
     if (isShare == 1) {
@@ -37,7 +38,7 @@ Page({
         })
       }
     } else {
-      util.checkAuthTab(config.service.getAuthTab,function(res){
+      util.getUserInfo(1,function(res){
         that.getGoodsDetail(shareGoodsId, function (res) {
           that.setData({
             curSecondGoods: res
@@ -67,7 +68,7 @@ Page({
     var imageUrl = Array()
     var curIndex = e.currentTarget.dataset.index
     var curSecondGoods = that.data.curSecondGoods
-    var imageUrl = curSecondGoods.goodsImage
+    var imageUrl = curSecondGoods.goodsImageUrl
     wx.previewImage({
       urls: imageUrl,
       current: imageUrl[curIndex],
@@ -80,7 +81,7 @@ Page({
       title: '数据加载中...',
       mask: 'true',
     })
-    
+   
     qcloud.myRequest({
       url: config.service.secGoodsDetailUrl,
       login: true,

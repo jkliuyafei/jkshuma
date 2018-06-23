@@ -32,6 +32,6 @@
     </view>
   </view>
   <text selectable='true' class='goods-describe title-color'>{{curSecondGoods.goodsDescribe}}</text>
-  <image class='goods-image' mode='widthFix' wx:for='{{curSecondGoods.goodsImage}}' wx:key='index' src='{{item}}' data-index='{{index}}' bindtap='seeBigImage'></image>
+  <image class='goods-image' mode='widthFix' wx:for='{{curSecondGoods.goodsImageUrl}}' wx:key='index' src='{{item}}' data-index='{{index}}' bindtap='seeBigImage'></image>
 </view>
 <view class="back-to-home" hidden="{{goHomeShow}}" bindtap='goHome'>去首页</view>

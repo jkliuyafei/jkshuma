@@ -86,8 +86,13 @@ Page({
       url: config.service.secGoodsUrl,
       login: true,
       success: function (res) {
+        var secondGoods = res.data.data.secondGoods
+        for (var i = 0; i < secondGoods.length; i++) {
+          secondGoods[i].goodsImageUrl = JSON.parse(secondGoods[i].goodsImageUrl)
+          secondGoods[i].goodsImei = '****' + secondGoods[i].goodsImei.slice(-6)
+        }
         that.setData({
-          secondGoods: res.data.data.secondGoods,
+          secondGoods: secondGoods,
         })
         wx.setStorage({
           key: 'secondGoods',

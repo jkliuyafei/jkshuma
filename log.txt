@@ -1,2 +1,3 @@
 1.user表 增加email、password字段
 2.更改user表的role字段为varchar20 默认值为user
+3.更改goods_second表的goodsImageId字段名称为goodsImageUrl,类型为varchar(2000)

@@ -71,7 +71,7 @@ var myGetUserInfo = (option) => {
     option.fail();
   }
 }
-//获取userInfo得到openid和role，先判定本地有没有权缓存，有的话直接返回，没有的话网络请求,refresh参数决定是否刷新userInfo缓存
+//获取userInfo得到openid和role，先判定本地有没有权缓存，有的话直接返回，没有的话网络请求,refresh参数决定是否刷新userInfo缓存,1代表刷新
 
 var getUserInfo = (refresh, callback) => {
   if (refresh == 1) {

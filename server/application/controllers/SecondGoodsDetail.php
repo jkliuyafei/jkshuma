@@ -15,13 +15,7 @@ class SecondGoodsDetail extends CI_Controller {
 	        $queryGoods=$this->db->get();
 	        $GoodsDetail=$queryGoods->row_array();
 	        $GoodsDetail['goodsImei']="****".substr($GoodsDetail['goodsImei'],-6);
-	        //查询商品所包含的图片
-	        $this->db->select('*')->from('goods_image')->where('goodsId',$goodsId)->order_by('imageIndex','ASC');
-	        $queryImage=$this->db->get();
-	        foreach ($queryImage->result_array() as $row){
-	            $goodsImage[]=$row['accessUrl'];
-	        }
-	        $GoodsDetail['goodsImage']=$goodsImage;
+	        $GoodsDetail['goodsImageUrl']=json_decode($GoodsDetail['goodsImageUrl']);
 	        $this->json([
 	            'code'=>0,
 	            'data'=>$GoodsDetail

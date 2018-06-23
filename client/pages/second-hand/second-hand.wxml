@@ -20,7 +20,7 @@
       <view class='goods-title-content title-color'>{{secondGoods.goodsTitle}}</view>
       <text class='goods-describe-content title-color'>{{secondGoods.goodsDescribe}}</text>
       <scroll-view class='goods-image-content' scroll-x='true'>
-        <image class='goods-image' wx:key='index' wx:for='{{secondGoods.goodsImage}}' wx:key='index' wx:for-item='goodsImage' mode='aspectFill' lazy-load='true' src='{{goodsImage}}' catchtap='seeBigImage' data-image-index='{{index}}' data-image='{{secondGoods.goodsImage}}'></image>
+        <image class='goods-image' wx:key='index' wx:for='{{secondGoods.goodsImageUrl}}' wx:key='index' wx:for-item='goodsImage' mode='aspectFill' lazy-load='true' src='{{goodsImage}}' catchtap='seeBigImage' data-image-index='{{index}}' data-image='{{secondGoods.goodsImageUrl}}'></image>
       </scroll-view>
     </view>
     </block>

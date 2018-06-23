@@ -59,13 +59,10 @@ Page({
           filePath: localImageUrl[i],
           formData: { folderName: '/secondGoodsImg/',imageIndex:i },
           success: function (res) {
-            var tempArr=new Object()
             var imageIndex=res.data.imageIndex
             var cosImageUrl=res.data.imgUrl
             imageUploadHint[imageIndex] = true//关闭当前图片的遮罩层
-            tempArr.imageUrl=cosImageUrl
-            tempArr.imageIndex=imageIndex
-            imageUrl.push(tempArr)//把上传成功后cos上的图片链接push到imageUrl二维数组
+            imageUrl[imageIndex]=cosImageUrl
             that.setData({
               imageUploadHint: imageUploadHint
             })
@@ -155,11 +152,12 @@ Page({
     var goodsParameter = that.data.goodsParameter
     if (upGoodsInfo.goodsTitle && upGoodsInfo.goodsDescribe && goodsParameter.goodsBrand && goodsParameter.goodsModel && goodsParameter.goodsColor && goodsParameter.goodsVolume && upGoodsInfo.goodsPrice && upGoodsInfo.goodsImei && localImageUrl.length) {
       that.uploadImage(function (res) {
+        var imageUrl=JSON.stringify(res)
         qcloud.myRequest({
           login:true,
           url: config.service.uploadGoodsUrl,
           data:{
-                imageUrl:res,
+                imageUrl:imageUrl,
                 goodsParameter:goodsParameter,
                 upGoodsInfo:upGoodsInfo
           },
@@ -181,6 +179,7 @@ Page({
                 }
               }
             })
+            
           }
         })
 
